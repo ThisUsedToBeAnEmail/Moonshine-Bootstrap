@@ -1,5 +1,6 @@
 Changes
 lib/Moonshine/Bootstrap.pm
+lib/Moonshine/Bootstrap/Component.pm
 Makefile.PL
 MANIFEST			This list of files
 README

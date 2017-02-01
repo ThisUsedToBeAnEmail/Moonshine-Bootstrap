@@ -13,7 +13,7 @@ no if $] >= 5.017011, warnings => 'experimental::smartmatch';
 
 extends "Moonshine::Component";
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 BEGIN {
     my %modify_spec = (
@@ -93,7 +93,7 @@ Moonshine::Bootstrap::Component - HTML Bootstrap Component base.
 
 =head1 VERSION
 
-Version 0.01
+Version 0.02
 
 =cut
 
