@@ -1,12 +1,37 @@
-# NAME
+package Moonshine::Bootstrap::Component;
+
+use 5.006;
+use strict;
+use warnings;
+
+use Moonshine::Element;
+use Moonshine::Magic;
+use Params::Validate qw(:all);
+use Ref::Util qw(:all);
+use BEGIN::Lift;
+use feature qw/switch/;
+no if $] >= 5.017011, warnings => 'experimental::smartmatch';
+
+extends "Moonshine::Component";
+
+our $VERSION = '0.01';
+
+            
+1;
+
+__END__
+
+=head1 NAME
 
 Moonshine::Bootstrap::Component - HTML Bootstrap Component base.
 
-# VERSION
+=head1 VERSION
 
 Version 0.01
 
-# SYNOPSIS
+=cut
+
+=head1 SYNOPSIS
 
     package Moonshine::Bootstap::Component::Glyphicon;
 
@@ -29,15 +54,15 @@ Version 0.01
         return $self->span($base_args);
     }
 
-# AUTHOR
+=head1 AUTHOR
 
-LNATION, `<thisusedtobeanemail at gmail.com>`
+LNATION, C<< <thisusedtobeanemail at gmail.com> >>
 
-# BUGS
+=head1 BUGS
 
-# ACKNOWLEDGEMENTS
+=head1 ACKNOWLEDGEMENTS
 
-# LICENSE AND COPYRIGHT
+=head1 LICENSE AND COPYRIGHT
 
 Copyright 2017 LNATION.
 
@@ -45,7 +70,7 @@ This program is free software; you can redistribute it and/or modify it
 under the terms of the the Artistic License (2.0). You may obtain a
 copy of the full license at:
 
-[http://www.perlfoundation.org/artistic\_license\_2\_0](http://www.perlfoundation.org/artistic_license_2_0)
+L<http://www.perlfoundation.org/artistic_license_2_0>
 
 Any use, modification, and distribution of the Standard or Modified
 Versions is governed by this Artistic License. By using, modifying or
@@ -76,3 +101,7 @@ YOUR LOCAL LAW. UNLESS REQUIRED BY LAW, NO COPYRIGHT HOLDER OR
 CONTRIBUTOR WILL BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, OR
 CONSEQUENTIAL DAMAGES ARISING IN ANY WAY OUT OF THE USE OF THE PACKAGE,
 EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+=cut
+
+1;
