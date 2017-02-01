@@ -18,40 +18,48 @@ our $VERSION = '0.01';
 
 BEGIN {
     my %modifier_spec = (
-        (map { $_ => 0 }
-            qw/row switch lead txt switch_base class_base sizing 
-            sizing_base alignment alignment_base active disable 
-            justified justified_base container/),
-        (map { $_ => { optional => 1, type => ARRAYREF } }
-            qw/before_element after_element children/),
-        (map {
-			$_ => 0,
-			$_ . '_base'        => { default => 'col-' . $_ . '-' },
-          	$_ . '_offset'      => 0,
-          	$_ . '_offset_base' => { default => 'col-' . $_ . '-offset-' },
-          	$_ . '_pull'        => 0,
-          	$_ . '_pull_base'   => { default => 'col-' . $_ . '-pull-' },
-          	$_ . '_push'        => 0,
-			$_ . '_push_base' => { default => 'col-' . $_ . '-push-' }, 
-    	} qw/xs sm md/),
-		( map {
-			$_ . '_base' => { default => $_ }
-		 } qw/active lead row container/),
-        disable_base   => { default => 'disabled' },
-		txt_base => { default => 'text-' },
-	);
-    has (
+        (
+            map { $_ => 0 }
+              qw/row switch lead txt switch_base class_base sizing
+              sizing_base alignment alignment_base active disable
+              justified justified_base container/
+        ),
+        (
+            map { $_ => { optional => 1, type => ARRAYREF } }
+              qw/before_element after_element children/
+        ),
+        (
+            map {
+                $_ => 0,
+                  $_ . '_base'   => { default => 'col-' . $_ . '-' },
+                  $_ . '_offset' => 0,
+                  $_
+                  . '_offset_base'  => { default => 'col-' . $_ . '-offset-' },
+                  $_ . '_pull'      => 0,
+                  $_ . '_pull_base' => { default => 'col-' . $_ . '-pull-' },
+                  $_ . '_push'      => 0,
+                  $_ . '_push_base' => { default => 'col-' . $_ . '-push-' },
+            } qw/xs sm md/
+        ),
+        (
+            map { $_ . '_base' => { default => $_ } }
+              qw/active lead row container/
+        ),
+        disable_base => { default => 'disabled' },
+        txt_base     => { default => 'text-' },
+    );
+    has(
         modifier_spec => sub {
-        	return \%modifer_spec;
+            return \%modifer_spec;
         }
     );
 }
 
 sub modify {
     my $self = shift;
-    my ($base_args, $build_args, $modify_args) = @_;
+    my ( $base_args, $build_args, $modify_args ) = @_;
 
-	if ( my $switch = join_class( $modifier{switch_base}, $modifier{switch} ) )
+    if ( my $switch = join_class( $modifier{switch_base}, $modifier{switch} ) )
     {
         $base{class} = prepend_str( $switch, $base{class} );
     }
@@ -60,9 +68,12 @@ sub modify {
         $base{class} = prepend_str( $class_base, $base{class} );
     }
 
-    my @grid_keys = map { $_ } grep { $_ !~ m{^.*_base$}xms } sort keys %{ $self->{grid_spec} };
+    my @grid_keys =
+      map  { $_ }
+      grep { $_ !~ m{^.*_base$}xms } sort keys %{ $self->{grid_spec} };
     for ( @grid_keys, qw/sizing alignment txt/ ) {
-        if ( my $append_class = join_class( $modifier{ $_ . '_base' }, $modifier{$_} ) )
+        if ( my $append_class =
+            join_class( $modifier{ $_ . '_base' }, $modifier{$_} ) )
         {
             $base{class} = append_str( $append_class, $base{class} );
         }
@@ -76,16 +87,17 @@ sub modify {
     }
 
     if ( my $container = $modifier{container} ) {
-        my $cb              = $modifier{container_base};
-        my $container_class = ( $container =~ m/^\D/ )
+        my $cb = $modifier{container_base};
+        my $container_class =
+          ( $container =~ m/^\D/ )
           ? sprintf "%s-%s", $cb, $container
           : $cb;
         $base{class} = append_str( $container_class, $base{class} );
-	}
-	
+    }
+
     return $base_args, $build_args, $modify_args;
 }
-            
+
 1;
 
 __END__
