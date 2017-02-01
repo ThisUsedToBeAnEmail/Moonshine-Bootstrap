@@ -7,7 +7,7 @@ use Test::More;
 plan tests => 1;
 
 BEGIN {
-    use_ok( 'Moonshine::Bootstrap' ) || print "Bail out!\n";
+    use_ok( 'Moonshine::Bootstrap::Component' ) || print "Bail out!\n";
 }
 
 diag( "Testing Moonshine::Bootstrap $Moonshine::Bootstrap::VERSION, Perl $], $^X" );

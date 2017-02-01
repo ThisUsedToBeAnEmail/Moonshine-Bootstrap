@@ -6,9 +6,8 @@ use warnings;
 
 use Moonshine::Element;
 use Moonshine::Magic;
-use Params::Validate qw(:all);
-use Ref::Util qw(:all);
-use BEGIN::Lift;
+use Moonshine::Util qw/join_class prepend_str append_str/;
+use Moonshine::Component;
 use feature qw/switch/;
 no if $] >= 5.017011, warnings => 'experimental::smartmatch';
 
@@ -17,7 +16,7 @@ extends "Moonshine::Component";
 our $VERSION = '0.01';
 
 BEGIN {
-    my %modifier_spec = (
+    my %modify_spec = (
         (
             map { $_ => 0 }
               qw/row switch lead txt switch_base class_base sizing
@@ -25,7 +24,7 @@ BEGIN {
               justified justified_base container/
         ),
         (
-            map { $_ => { optional => 1, type => ARRAYREF } }
+            map { $_ => { optional => 1, type => 'ARRAYREF' } }
               qw/before_element after_element children/
         ),
         (
@@ -49,7 +48,7 @@ BEGIN {
     );
     has(
         modifier_spec => sub {
-            return \%modifer_spec;
+            return \%modify_spec;
         }
     );
 }
@@ -58,34 +57,27 @@ sub modify {
     my $self = shift;
     my ( $base, $build, $modify ) = @_;
 
-    if ( my $switch = join_class( $modify->{switch_base}, $modify->{switch} ) ) {
-        $base->{class} = prepend_str( $switch, $base->{class} );
-    }
-
-    if ( my $class_base = $modify->{class_base} ) {
-        $base->{class} = prepend_str( $class_base, $base->{class} );
+    for (qw/class active justified disable row lead/) {
+        if ( defined $modify->{$_} ) {
+            $base->{class} = prepend_str( $modify->{ $_ . '_base' }, $base->{class} );
+        }
     }
 
     my @grid_keys = map  { $_ }
       grep { $_ !~ m{^.*_base$}xms } sort keys %{ $self->{grid_spec} };
-    for ( @grid_keys, qw/sizing alignment txt/ ) {
+    for ( @grid_keys, qw/sizing alignment txt switch/ ) {
         if ( my $append_class = join_class( $modify->{ $_ . '_base' }, $modify->{$_} ) ) {
-            $base->{class} = append_str( $append_class, $base->{class} );
+            $base->{class} = prepend_str( $append_class, $base->{class} );
         }
     }
 
-    for (qw/active justified disable row lead/) {
-        if ( defined $modify->{$_} ) {
-            $base->{class} = append_str( $modify->{ $_ . '_base' }, $base->{class} );
-        }
-    }
 
     if ( my $container = $modify->{container} ) {
         my $cb = $modify->{container_base};
         my $container_class = ( $container =~ m/^\D/ )
           ? sprintf "%s-%s", $cb, $container
           : $cb;
-        $base->{class} = append_str( $container_class, $base->{class} );
+        $base->{class} = prepend_str( $container_class, $base->{class} );
     }
 
     return $base, $build, $modify;
@@ -107,11 +99,14 @@ Version 0.01
 
 =head1 SYNOPSIS
 
-    package Moonshine::Bootstap::Component::Glyphicon;
+    package Moonshine::Bootstrap::Component::Glyphicon;
+
+    use Moonshine::Magic;
+    use Moonshine::Util qw/join_class prepend_str/;
 
     extends 'Moonshine::Bootstrap::Component';
     
-    lazy_components (qw/span/)
+    lazy_components (qw/span/);
 
     sub glyphicon {
         my $self = shift;
@@ -127,6 +122,8 @@ Version 0.01
         );
         return $self->span($base_args);
     }
+
+    1;
 
 =head1 AUTHOR
 
