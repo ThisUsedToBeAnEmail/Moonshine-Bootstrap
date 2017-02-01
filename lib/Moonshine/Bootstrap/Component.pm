@@ -56,39 +56,39 @@ BEGIN {
 
 sub modify {
     my $self = shift;
-    my ( $base_args, $build_args, $modify_args ) = @_;
+    my ( $base, $build, $modify ) = @_;
 
-    if ( my $switch = join_class( $modifier{switch_base}, $modifier{switch} ) ) {
-        $base{class} = prepend_str( $switch, $base{class} );
+    if ( my $switch = join_class( $modify->{switch_base}, $modify->{switch} ) ) {
+        $base->{class} = prepend_str( $switch, $base->{class} );
     }
 
-    if ( my $class_base = $modifier{class_base} ) {
-        $base{class} = prepend_str( $class_base, $base{class} );
+    if ( my $class_base = $modify->{class_base} ) {
+        $base->{class} = prepend_str( $class_base, $base->{class} );
     }
 
     my @grid_keys = map  { $_ }
       grep { $_ !~ m{^.*_base$}xms } sort keys %{ $self->{grid_spec} };
     for ( @grid_keys, qw/sizing alignment txt/ ) {
-        if ( my $append_class = join_class( $modifier{ $_ . '_base' }, $modifier{$_} ) ) {
-            $base{class} = append_str( $append_class, $base{class} );
+        if ( my $append_class = join_class( $modify->{ $_ . '_base' }, $modify->{$_} ) ) {
+            $base->{class} = append_str( $append_class, $base->{class} );
         }
     }
 
     for (qw/active justified disable row lead/) {
-        if ( defined $modifier{$_} ) {
-            $base{class} = append_str( $modifier{ $_ . '_base' }, $base{class} );
+        if ( defined $modify->{$_} ) {
+            $base->{class} = append_str( $modify->{ $_ . '_base' }, $base->{class} );
         }
     }
 
-    if ( my $container = $modifier{container} ) {
-        my $cb = $modifier{container_base};
+    if ( my $container = $modify->{container} ) {
+        my $cb = $modify->{container_base};
         my $container_class = ( $container =~ m/^\D/ )
           ? sprintf "%s-%s", $cb, $container
           : $cb;
-        $base{class} = append_str( $container_class, $base{class} );
+        $base->{class} = append_str( $container_class, $base->{class} );
     }
 
-    return $base_args, $build_args, $modify_args;
+    return $base, $build, $modify;
 }
 
 1;
