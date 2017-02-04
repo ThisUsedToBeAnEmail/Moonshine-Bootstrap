@@ -11,7 +11,7 @@ use Moonshine::Component;
 use feature qw/switch/;
 no if $] >= 5.017011, warnings => 'experimental::smartmatch';
 
-extends "Moonshine::Component";
+extends ("Moonshine::Component");
 
 our $VERSION = '0.02';
 

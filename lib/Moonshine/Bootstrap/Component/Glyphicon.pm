@@ -4,19 +4,20 @@ use strict;
 use warnings;
 
 use Moonshine::Magic;
+use Moonshine::Bootstrap::Component;
 
 extends 'Moonshine::Bootstrap::Component';
 
-has (
-	glyphicon_spec => sub { die "spec is required" },
-);
+lazy_components(qw/span/);
 
 sub glyphicon {
     my ($self) = shift;
+    
+    my $spec = $self->glyphicon_spec;
     my ( $base_args, $build_args ) = $self->validate_build(
         {
             params => $_[0] // {},
-            spec => $self->glyhicon_spec,
+            spec => $spec,
         }
     );
     return $self->span($base_args);
