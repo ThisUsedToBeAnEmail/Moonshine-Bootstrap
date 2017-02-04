@@ -10,14 +10,23 @@ extends 'Moonshine::Bootstrap::Component';
 
 lazy_components(qw/span/);
 
+has (
+    glyphicon_spec => sub { 
+      	{
+            switch      => 1,
+			switch_base => { default => 'glyphicon glyphicon-' },
+			aria_hidden => { default => 'true' },
+		};
+    }
+);
+
 sub glyphicon {
     my ($self) = shift;
-    
-    my $spec = $self->glyphicon_spec;
+
     my ( $base_args, $build_args ) = $self->validate_build(
         {
             params => $_[0] // {},
-            spec => $spec,
+            spec => $self->glyphicon_spec,
         }
     );
     return $self->span($base_args);
@@ -27,29 +36,18 @@ sub glyphicon {
 
 __END__
 
-=head2 Glyphicon 
+=head1 NAME
+
+Moonshine::Bootstrap::Component::Glyphicon
+
+=head1 SYNOPSIS
+
+
+=head2 glyphicon
 
     $self->glyphicon({ class => 'search' });
 
-=head3 options
-
-=over
-
-=item tag
-
-default span
-
-=item class
-
-is required
-
-=item aria_hidden
-
-default true
-
-=back
-
-=head3 Sample Output
+returns a Moonshine::Element that renders too..
 
     <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
 
