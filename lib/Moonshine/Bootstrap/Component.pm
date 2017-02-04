@@ -59,7 +59,7 @@ sub modify {
 
     for (qw/class active justified disable row lead/) {
         if ( defined $modify->{$_} ) {
-            $base->{class} = prepend_str( $modify->{ $_ . '_base' }, $base->{class} );
+            $base->{class} = append_str( $modify->{ $_ . '_base' }, $base->{class} );
         }
     }
 
@@ -67,7 +67,7 @@ sub modify {
       grep { $_ !~ m{^.*_base$}xms } sort keys %{ $self->{grid_spec} };
     for ( @grid_keys, qw/sizing alignment txt switch/ ) {
         if ( my $append_class = join_class( $modify->{ $_ . '_base' }, $modify->{$_} ) ) {
-            $base->{class} = prepend_str( $append_class, $base->{class} );
+            $base->{class} = append_str( $append_class, $base->{class} );
         }
     }
 

@@ -42,10 +42,7 @@ Moonshine::Bootstrap::Component::Glyphicon
 
 =head1 SYNOPSIS
 
-
-=head2 glyphicon
-
-    $self->glyphicon({ class => 'search' });
+    glyphicon({ class => 'search' });
 
 returns a Moonshine::Element that renders too..
 

@@ -28,7 +28,7 @@ moon_test(
 );
 
 moon_test(
-    name => 'glyphicon',
+    name => 'glyphicon v3',
     build => {
         class => 'Moonshine::Bootstrap::v3::Glyphicon',        
     },
@@ -51,7 +51,7 @@ moon_test(
 );
 
 moon_test(
-    name => 'glyphicon',
+    name => 'glyphicon v4',
     build => {
         class => 'Moonshine::Bootstrap::v4::Glyphicon',        
     },
