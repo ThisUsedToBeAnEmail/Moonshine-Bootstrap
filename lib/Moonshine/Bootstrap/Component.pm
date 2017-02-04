@@ -6,7 +6,7 @@ use warnings;
 
 use Moonshine::Element;
 use Moonshine::Magic;
-use Moonshine::Util qw/join_class prepend_str append_str/;
+use Moonshine::Util;
 use Moonshine::Component;
 use feature qw/switch/;
 no if $] >= 5.017011, warnings => 'experimental::smartmatch';
@@ -16,6 +16,19 @@ extends ("Moonshine::Component");
 our $VERSION = '0.02';
 
 BEGIN {
+    my %grid = (
+       map {
+              $_ => 0,
+              $_ . '_base'   => { default => 'col-' . $_ . '-' },
+              $_ . '_offset' => 0,
+              $_ . '_offset_base'  => { default => 'col-' . $_ . '-offset-' },
+              $_ . '_pull'      => 0,
+              $_ . '_pull_base' => { default => 'col-' . $_ . '-pull-' },
+              $_ . '_push'      => 0,
+              $_ . '_push_base' => { default => 'col-' . $_ . '-push-' },
+            } qw/xs sm md/
+    );
+
     my %modify_spec = (
         (
             map { $_ => 0 }
@@ -27,18 +40,7 @@ BEGIN {
             map { $_ => { optional => 1, type => 'ARRAYREF' } }
               qw/before_element after_element children/
         ),
-        (
-            map {
-                $_ => 0,
-                  $_ . '_base'   => { default => 'col-' . $_ . '-' },
-                  $_ . '_offset' => 0,
-                  $_ . '_offset_base'  => { default => 'col-' . $_ . '-offset-' },
-                  $_ . '_pull'      => 0,
-                  $_ . '_pull_base' => { default => 'col-' . $_ . '-pull-' },
-                  $_ . '_push'      => 0,
-                  $_ . '_push_base' => { default => 'col-' . $_ . '-push-' },
-            } qw/xs sm md/
-        ),
+        %grid,
         (
             map { $_ . '_base' => { default => $_ } }
               qw/active lead row container/
@@ -49,6 +51,9 @@ BEGIN {
     has(
         modifier_spec => sub {
             return \%modify_spec;
+        },
+        grid_spec => sub {
+            return \%grid
         }
     );
 }
@@ -70,7 +75,7 @@ sub modify {
      } 
 
     my @grid_keys = map  { $_ }
-      grep { $_ !~ m{^.*_base$}xms } sort keys %{ $self->{grid_spec} };
+      grep { $_ !~ m{_base$}xms } sort keys %{ $self->grid_spec };
     for ( @grid_keys, qw/switch sizing alignment txt/ ) {
         if ( my $append_class = join_class( $modify->{ $_ . '_base' }, $modify->{$_} ) ) {
             $base->{class} = prepend_str( $append_class, $base->{class} );
