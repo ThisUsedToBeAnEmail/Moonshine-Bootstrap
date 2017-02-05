@@ -8,6 +8,7 @@ use Moonshine::Element;
 use Moonshine::Magic;
 use Moonshine::Util;
 use Moonshine::Component;
+use Params::Validate qw(:all);
 use feature qw/switch/;
 no if $] >= 5.017011, warnings => 'experimental::smartmatch';
 
@@ -37,7 +38,7 @@ BEGIN {
               justified justified_base container/
         ),
         (
-            map { $_ => { optional => 1, type => 'ARRAYREF' } }
+            map { $_ => { optional => 1, type => ARRAYREF } }
               qw/before_element after_element children/
         ),
         %grid,

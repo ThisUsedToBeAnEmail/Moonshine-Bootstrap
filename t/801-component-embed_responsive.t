@@ -24,7 +24,7 @@ moon_test(
             subtest => [
                 {
                     test => 'render',
-                    expected => '<div class="embed-responsive"><iframe class="embed-responsive-iframe" src="http://lnation.org"></iframe></div>'
+                    expected => '<div class="embed-responsive"><iframe class="embed-responsive-item" src="http://lnation.org"></iframe></div>'
                 }
             ],
         },

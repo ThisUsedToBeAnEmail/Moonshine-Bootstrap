@@ -3,6 +3,22 @@ package Moonshine::Bootstrap;
 use strict;
 use warnings;
 
+use Moonshine::Magic;
+
+our @ISA;
+BEGIN { 
+    my @bootstrap = qw/
+        Moonshine::Bootstrap::Component::EmbedResponsive
+        Moonshine::Bootstrap::Component::EmbedResponsiveIframe
+    /;
+
+    for (@bootstrap) {
+        eval "require $_";
+        die $@ if $@;
+    }
+    @ISA = @bootstrap;
+};
+
 =head1 NAME
 
 Moonshine::Bootstrap - Shine.
