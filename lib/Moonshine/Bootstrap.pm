@@ -8,6 +8,7 @@ use Moonshine::Magic;
 our @ISA;
 BEGIN { 
     my @bootstrap = qw/
+        Moonshine::Bootstrap::Component::EmbedRes
         Moonshine::Bootstrap::Component::EmbedResponsive
         Moonshine::Bootstrap::Component::EmbedResponsiveIframe
     /;

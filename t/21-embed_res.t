@@ -1,5 +1,6 @@
 use Moonshine::Test qw/:all/;
-
+use strict;
+use warnings;
 use Moonshine::Bootstrap::Component::EmbedRes;
 use Moonshine::Bootstrap::v3::EmbedRes;
 
