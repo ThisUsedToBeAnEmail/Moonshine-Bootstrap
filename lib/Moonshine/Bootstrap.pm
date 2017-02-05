@@ -17,6 +17,7 @@ BEGIN {
         eval "require $_";
         die $@ if $@;
     }
+    
     @ISA = @bootstrap;
 };
 

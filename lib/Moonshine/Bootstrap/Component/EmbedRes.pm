@@ -6,10 +6,6 @@ use warnings;
 use Moonshine::Magic;
 use Moonshine::Util;
 
-require Moonshine::Bootstrap::Component;
-require Moonshine::Bootstrap::Component::EmbedResponsive;
-require Moonshine::Bootstrap::Component::EmbedResponsiveIframe;
-
 extends (
     'Moonshine::Bootstrap::Component', 
     'Moonshine::Bootstrap::Component::EmbedResponsive',  
