@@ -39,11 +39,11 @@ Moonshine::Bootstrap::Component::EmbedResponsiveIframe
 
 =head1 SYNOPSIS
 
-    responsive_iframe({  });
+    embed_responsive_iframe({  });
 
 returns a Moonshine::Element that renders too..
 
-	<responsive_iframe type="responsive_iframe" class="btn btn-success">Left</responsive_iframe>
+	<iframe class="embed_responsive_iframe" src="..."></iframe>
 
 =cut
 
