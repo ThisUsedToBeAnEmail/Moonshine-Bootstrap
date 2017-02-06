@@ -10,8 +10,9 @@ our @ISA;
 
 BEGIN {
     my $version = sprintf "v%d", 3;
-    my @components = map { sprintf "Moonshine::Bootstrap::%s::%s", $version, $_ } map { 
-        $_ =~ /.*\/(.*).pm/; 
+    my @components = map { 
+        sprintf "Moonshine::Bootstrap::%s::%s", 
+            $version, ($_ =~ /.*\/(.*).pm/); 
     } glob(getcwd . "/lib/Moonshine/Bootstrap/$version/*");
     for (@components) {
         eval "require $_";   
