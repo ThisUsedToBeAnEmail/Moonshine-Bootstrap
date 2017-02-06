@@ -2,15 +2,22 @@ package Moonshine::Bootstrap;
 
 use strict;
 use warnings;
+use Data::Dumper;
+use Cwd;
+use UNIVERSAL::Object; 
 
-use Moonshine::Magic;
+our @ISA;
 
-extends (qw/
-    Moonshine::Bootstrap::Component::EmbedRes
-    Moonshine::Bootstrap::Component::EmbedResponsive
-    Moonshine::Bootstrap::Component::EmbedResponsiveIframe
-/);
-    
+BEGIN {
+    my $version = sprintf "v%d", 3;
+    my @components = map { sprintf "Moonshine::Bootstrap::%s::%s", $version, $_ } map { 
+        $_ =~ /.*\/(.*).pm/; 
+    } glob(getcwd . "/lib/Moonshine/Bootstrap/$version/*");
+    for (@components) {
+        eval "require $_";   
+    } 
+    @ISA = ('UNIVERSAL::Object', @components);
+}
 
 =head1 NAME
 
