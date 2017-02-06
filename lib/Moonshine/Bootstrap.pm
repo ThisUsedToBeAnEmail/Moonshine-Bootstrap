@@ -9,6 +9,7 @@ use UNIVERSAL::Object;
 our @ISA;
 
 BEGIN {
+    # this doesn't work in the real world :)
     my $version = sprintf "v%d", 3;
     my @components = map { 
         sprintf "Moonshine::Bootstrap::%s::%s", 
