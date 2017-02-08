@@ -15,10 +15,7 @@ BEGIN {
     has ( component_classes => sub { return \@components } );
 }
 
-sub BLESSED {
-    my ($self, $args) = @_; 
 
-}
 
 =head1 NAME
 
