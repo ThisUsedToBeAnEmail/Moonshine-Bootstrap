@@ -5,6 +5,7 @@ use warnings;
 
 use Moonshine::Magic;
 use Moonshine::Bootstrap::Component;
+use Exporter::Shiny our @EXPORT = qw/embed_responsive_iframe/;
 
 extends 'Moonshine::Bootstrap::Component';
 

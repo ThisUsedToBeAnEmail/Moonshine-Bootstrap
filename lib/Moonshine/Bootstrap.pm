@@ -2,22 +2,18 @@ package Moonshine::Bootstrap;
 
 use strict;
 use warnings;
+
+use Moonshine::Magic;
 use Data::Dumper;
 use Cwd;
 use UNIVERSAL::Object; 
+use FindBin;
+use Module::Find;
 
 our @ISA;
-
 BEGIN {
-    # this doesn't work in the real world :)
     my $version = sprintf "v%d", 3;
-    my @components = map { 
-        sprintf "Moonshine::Bootstrap::%s::%s", 
-            $version, ($_ =~ /.*\/(.*).pm/); 
-    } glob(getcwd . "/lib/Moonshine/Bootstrap/$version/*");
-    for (@components) {
-        eval "require $_";   
-    } 
+    my @components = useall "Moonshine::Bootstrap::${version}";
     @ISA = ('UNIVERSAL::Object', @components);
 }
 
