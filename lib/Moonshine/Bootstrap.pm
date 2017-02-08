@@ -3,18 +3,21 @@ package Moonshine::Bootstrap;
 use strict;
 use warnings;
 
-use Moonshine::Magic;
-use Data::Dumper;
-use Cwd;
 use UNIVERSAL::Object; 
-use FindBin;
 use Module::Find;
+use Moonshine::Magic;
 
-our @ISA;
+extends 'UNIVERSAL::Object';
+
 BEGIN {
     my $version = sprintf "v%d", 3;
     my @components = useall "Moonshine::Bootstrap::${version}";
-    @ISA = ('UNIVERSAL::Object', @components);
+    has ( component_classes => sub { return \@components } );
+}
+
+sub BLESSED {
+    my ($self, $args) = @_; 
+
 }
 
 =head1 NAME
