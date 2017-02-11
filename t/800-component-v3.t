@@ -93,6 +93,22 @@ moon_test(
                 }
             ],
         },
+        {
+            test => 'obj',
+            func => 'linked_li',
+            args   => {
+                link    => 'http://some.url',
+                data    => 'URL',
+                disable => 1,
+            },
+            expected => 'Moonshine::Element',
+            subtest => [
+                {
+                    test => 'render',
+                    expected => '<li class="disabled"><a href="http://some.url">URL</a></li>'
+                }
+            ],
+        },
     ],
 );
 
