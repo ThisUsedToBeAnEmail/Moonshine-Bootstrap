@@ -82,6 +82,17 @@ moon_test(
                 }
             ],
         },
+        {
+            test => 'obj',
+            func => 'dropdown_header_li',
+            expected => 'Moonshine::Element',
+            subtest => [
+                {
+                    test => 'render',
+                    expected => '<li class="dropdown-header"></li>',
+                }
+            ],
+        },
     ],
 );
 
