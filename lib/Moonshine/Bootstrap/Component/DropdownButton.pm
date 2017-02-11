@@ -1,12 +1,12 @@
 package Moonshine::Bootstrap::Component::DropdownButton;
 
-use strict;
-use warnings;
-
 use Moonshine::Magic;
-use Moonshine::Bootstrap::Component;
 
-extends 'Moonshine::Bootstrap::Component';
+extends (
+    'Moonshine::Bootstrap::Component',
+    'Moonshine::Bootstrap::Component::Caret',
+    'Moonshine::Bootstrap::Component::Button'
+);
 
 has (
     dropdown_button_spec => sub { 

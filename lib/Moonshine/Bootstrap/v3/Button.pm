@@ -6,7 +6,7 @@ extends (
     'Moonshine::Bootstrap::Component'
 ); 
 
-extends 'Moonshine::Bootstrap::Component::Button';
+with 'Moonshine::Bootstrap::Component::Button';
 
 1;
 

@@ -55,7 +55,22 @@ moon_test(
                 }
             ],
         },
-
+       {
+            test => 'obj',
+            func => 'dropdown_button',
+            args   => {
+                split => 1,
+                id    => 'dropdownMenu1',
+                data  => 'Dropdown',
+            },
+			expected => 'Moonshine::Element',
+            subtest => [
+                {
+                    test => 'render',
+                    expected => '<button class="btn btn-default" type="button">Dropdown</button><button class="dropdown-toggle btn btn-default" id="dropdownMenu1" type="button" aria-expanded="true" aria-haspopup="true" data-toggle="dropdown"><span class="caret"></span></button>'
+                }
+            ],
+        },
     ],
 );
 
