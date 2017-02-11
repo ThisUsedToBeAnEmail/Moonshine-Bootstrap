@@ -44,6 +44,18 @@ moon_test(
                 }
             ],
         },
+        {
+            test => 'obj',
+            func => 'caret',
+            expected => 'Moonshine::Element',
+            subtest => [
+                {
+                    test => 'render',
+                    expected => '<span class="caret"></span>',
+                }
+            ],
+        },
+
     ],
 );
 
