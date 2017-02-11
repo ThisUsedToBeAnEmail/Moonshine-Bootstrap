@@ -5,17 +5,44 @@ use warnings;
 
 use UNIVERSAL::Object; 
 use Module::Find;
-use Moonshine::Magic;
+use MOP::Class;
 
-extends 'UNIVERSAL::Object';
+use parent 'UNIVERSAL::Object';
+
+use Moonshine::Bootstrap::v3::EmbedRes;
+
+our %HAS;
 
 BEGIN {
     my $version = sprintf "v%d", 3;
-    my @components = useall "Moonshine::Bootstrap::${version}";
-    has ( component_classes => sub { return \@components } );
+    my @components = findsubmod "Moonshine::Bootstrap::${version}";
+    with (
+        @components
+    );
 }
 
+=pod
 
+sub BUILDARGS {
+    my ($self, $args) = @_;
+
+    use Data::Dumper;
+    my $components = $HAS{components}->();
+    for my $component ( @{ $components } ) {
+        my ($action) = $component =~ /.*\:(.*)/;
+        $action =~ s/((?<=[a-z])[A-Z][a-z]+)/_\l$1/g;
+        $action = lcfirst $action;
+        
+        {
+            no strict 'refs';
+            *{"${action}"} = sub { $ };
+        }
+    }
+
+    return ($self, $args);
+}
+
+=cut
 
 =head1 NAME
 

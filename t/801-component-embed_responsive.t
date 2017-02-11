@@ -1,13 +1,12 @@
 use Moonshine::Test qw/:all/;
 use strict;
 use warnings;
-use Moonshine::Bootstrap;
+use Moonshine::Bootstrap::v3;
 
 moon_test(
     name => 'Bootstrap - embed_responsive - embed_responsive_iframe',
     build => {
-        class => 'Moonshine::Bootstrap',        
-        args => { version => 'v3' },
+        class => 'Moonshine::Bootstrap::v3',        
     },
     instructions => [
          {

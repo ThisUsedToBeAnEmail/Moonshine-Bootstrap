@@ -5,6 +5,7 @@ use warnings;
 
 use Moonshine::Magic;
 use Moonshine::Util;
+use Method::Traits qw[ Moonshine::Bootstrap::Trait::Export ];
 
 extends (
     'Moonshine::Bootstrap::Component', 
@@ -20,7 +21,7 @@ has(
     }
 );
 
-sub embed_res {
+sub embed_res : Export {
     my ($self) = shift;
 
     my ( $base_args, $build_args ) = $self->validate_build(
