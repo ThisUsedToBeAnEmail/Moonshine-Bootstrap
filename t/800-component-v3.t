@@ -109,6 +109,21 @@ moon_test(
                 }
             ],
         },
+        {
+            test => 'obj',
+            func => 'linked_li_span',
+            args => {
+                link => { href => 'http://some.url' },
+                span => { data => 'Achoooo' },
+            },
+            expected => 'Moonshine::Element',
+            subtest => [
+                {
+                    test => 'render',
+                    expected => '<li><a href="http://some.url"><span>Achoooo</span></a></li>'
+                }
+            ],
+        },
     ],
 );
 
