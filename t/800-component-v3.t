@@ -71,6 +71,17 @@ moon_test(
                 }
             ],
         },
+        {
+            test => 'obj',
+            func => 'separator_li',
+            expected => 'Moonshine::Element',
+            subtest => [
+                {
+                    test => 'render',
+                    expected => '<li class="divider" role="separator"></li>',
+                }
+            ],
+        },
     ],
 );
 
