@@ -438,6 +438,32 @@ moon_test(
                 }
             ],
         },
+        {
+            test => 'obj',
+            func => 'navbar_nav',
+            args   => {
+                switch  => 'tabs',
+                nav_items => [
+                    {
+                        data   => 'Home',
+                        active => 1,
+                    },
+                    {
+                        data => 'Profile',
+                    },
+                    {
+                        data => 'Messages',
+                    }
+                ],
+            },
+            expected => 'Moonshine::Element',
+            subtest => [
+                {
+                    test => 'render',
+                    expected => '<ul class="navbar-nav nav nav-tabs"><li class="active" role="presentation"><a href="#">Home</a></li><li role="presentation"><a href="#">Profile</a></li><li role="presentation"><a href="#">Messages</a></li></ul>',
+                }
+            ],
+        },
     ],
 );
 
