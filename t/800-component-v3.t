@@ -516,6 +516,26 @@ moon_test(
                 }
             ],
         },  
+        {
+            test => 'obj',
+            func => 'navbar_form',
+            expected => 'Moonshine::Element',
+            args   => {
+                alignment => 'left',
+                role      => 'search',
+                fields    => [
+                    {
+                        field_type => 'submit_button',
+                    },
+                ]
+            },
+            subtest => [
+                {
+                    test => 'render',
+                    expected => '<form class="navbar-form navbar-left" role="search"><button class="btn btn-default" type="submit">Submit</button></form>'
+                }
+            ],
+        },
     ],
 );
 
