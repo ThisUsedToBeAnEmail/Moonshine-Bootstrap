@@ -1,11 +1,17 @@
 package Moonshine::Bootstrap::Component::DropdownUl;
 
 use Moonshine::Magic;
+use Params::Validate qw/ARRAYREF/;
 
-extends 'Moonshine::Bootstrap::Component';
+extends (
+    'Moonshine::Bootstrap::Component',
+    'Moonshine::Bootstrap::Component::LinkedLi',
+    'Moonshine::Bootstrap::Component::SeparatorLi',
+    'Moonshine::Bootstrap::Component::DropdownHeaderLi',
+);
 
 has (
-    downdown_ul_spec => sub { 
+    dropdown_ul_spec => sub { 
       	{
 			tag         	=> { default => 'ul' },
 			class_base  	=> { default => 'dropdown-menu' },
@@ -16,29 +22,29 @@ has (
     }
 );
 
-sub downdown_ul {
+sub dropdown_ul {
     my ($self) = shift;
 
     my ( $base_args, $build_args ) = $self->validate_build(
         {
             params => $_[0] // {},
-            spec => $self->downdown_ul_spec,
+            spec => $self->dropdown_ul_spec,
         }
     );
 
-	my $base_element = $self->ul($base_args);
+	my $base_element = Moonshine::Element->new($base_args);
 
 	if ( $build_args->{headers} ) {
-		for ( @{ $build_args->{headers} } ) {
-			my $index = delete $_->{index} or croak "No index";
+        for ( @{ $build_args->{headers} } ) {
+			my $index = delete $_->{index} or die "No index";
 			splice @{ $base_element->{children} }, $index - 1, 0, $self->dropdown_header_li($_);
 		}
 	}
 
 	if ( $build_args->{separators} ) {
 		my $separator = $self->separator_li;
-		for ( @{ $build_args->{separators} } ) {
-			splice @{ $base_element->{children} }, $_ - 1, 0, $separtor;
+        for ( @{ $build_args->{separators} } ) {
+			splice @{ $base_element->{children} }, $_ - 1, 0, $separator;
 		}
 	}
 

@@ -124,6 +124,34 @@ moon_test(
                 }
             ],
         },
+        {
+            test => 'obj',
+            func => 'dropdown_ul',
+            args => {
+                separators      => [ 1, 3, 5 ],
+                aria_labelledby => 'dropdownMenu1',
+                children        => [
+                    {
+                        action => 'linked_li',
+                        link => 'http://some.url',
+                        data => 'URL',
+                    },
+                    {
+                        action => 'linked_li',
+                        link => 'http://second.url',
+                        data => 'Second',
+                    }
+                ],           
+            },
+            expected => 'Moonshine::Element',
+            subtest => [
+                {
+                    test => 'render',
+                    expected => '<ul class="dropdown-menu" aria-labelledby="dropdownMenu1"><li class="divider" role="separator"></li><li><a href="http://some.url">URL</a></li><li class="divider" role="separator"></li><li><a href="http://second.url">Second</a></li><li class="divider" role="separator"></li></ul>'
+                }
+            ],
+        },
+
     ],
 );
 
