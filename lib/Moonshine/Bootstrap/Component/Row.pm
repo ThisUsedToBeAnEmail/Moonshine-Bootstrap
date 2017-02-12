@@ -8,9 +8,9 @@ use Moonshine::Bootstrap::Component;
 
 extends 'Moonshine::Bootstrap::Component';
 
-has (
-    row_spec => sub { 
-      	{
+has(
+    row_spec => sub {
+        {
             tag => { default => 'div' },
             row => { default => 1 },
         };
