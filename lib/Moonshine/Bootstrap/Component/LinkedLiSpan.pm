@@ -4,13 +4,13 @@ use Moonshine::Magic;
 
 extends 'Moonshine::Bootstrap::Component';
 
-has (
-    linked_li_span_spec => sub { 
-      	{
-            tag  => { default => 'li' },
-			link => { default => HASHREF },
-            span => { default => HASHREF, build => 1 },
-		    data => { optional => 1, build => 1 },
+has(
+    linked_li_span_spec => sub {
+        {
+            tag  => { default  => 'li' },
+            link => { default  => HASHREF },
+            span => { default  => HASHREF, build => 1 },
+            data => { optional => 1, build => 1 },
         };
     }
 );
@@ -27,21 +27,21 @@ sub linked_li_span {
 
     my $base_element = Moonshine::Element->new($base_args);
 
-	my $a = $base_element->add_child(
-	    {
+    my $a = $base_element->add_child(
+        {
             tag => 'a',
-            (%{ $build_args->{link} }),
-		}
-	);
+            ( %{ $build_args->{link} } ),
+        }
+    );
 
     $a->add_child(
         {
             tag => 'span',
-            (%{ $build_args->{span} }),
+            ( %{ $build_args->{span} } ),
         }
     );
 
-	return $base_element;
+    return $base_element;
 }
 
 1;

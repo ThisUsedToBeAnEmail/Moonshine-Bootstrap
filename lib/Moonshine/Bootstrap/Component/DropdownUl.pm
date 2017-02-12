@@ -3,21 +3,21 @@ package Moonshine::Bootstrap::Component::DropdownUl;
 use Moonshine::Magic;
 use Params::Validate qw/ARRAYREF/;
 
-extends (
+extends(
     'Moonshine::Bootstrap::Component',
     'Moonshine::Bootstrap::Component::LinkedLi',
     'Moonshine::Bootstrap::Component::SeparatorLi',
     'Moonshine::Bootstrap::Component::DropdownHeaderLi',
 );
 
-has (
-    dropdown_ul_spec => sub { 
-      	{
-			tag         	=> { default => 'ul' },
-			class_base  	=> { default => 'dropdown-menu' },
-			alignment_base 	=> { default => 'dropdown-menu-' },
-			separators 		=> { type => ARRAYREF, optional => 1 },
-			headers			=> { type => ARRAYREF, optional => 1 },
+has(
+    dropdown_ul_spec => sub {
+        {
+            tag            => { default => 'ul' },
+            class_base     => { default => 'dropdown-menu' },
+            alignment_base => { default => 'dropdown-menu-' },
+            separators     => { type    => ARRAYREF, optional => 1 },
+            headers        => { type    => ARRAYREF, optional => 1 },
         };
     }
 );
@@ -32,23 +32,24 @@ sub dropdown_ul {
         }
     );
 
-	my $base_element = Moonshine::Element->new($base_args);
+    my $base_element = Moonshine::Element->new($base_args);
 
-	if ( $build_args->{headers} ) {
+    if ( $build_args->{headers} ) {
         for ( @{ $build_args->{headers} } ) {
-			my $index = delete $_->{index} or die "No index";
-			splice @{ $base_element->{children} }, $index - 1, 0, $self->dropdown_header_li($_);
-		}
-	}
+            my $index = delete $_->{index} or die "No index";
+            splice @{ $base_element->{children} }, $index - 1, 0,
+              $self->dropdown_header_li($_);
+        }
+    }
 
-	if ( $build_args->{separators} ) {
-		my $separator = $self->separator_li;
+    if ( $build_args->{separators} ) {
+        my $separator = $self->separator_li;
         for ( @{ $build_args->{separators} } ) {
-			splice @{ $base_element->{children} }, $_ - 1, 0, $separator;
-		}
-	}
+            splice @{ $base_element->{children} }, $_ - 1, 0, $separator;
+        }
+    }
 
-	return $base_element;
+    return $base_element;
 }
 
 1;

@@ -4,20 +4,20 @@ use Moonshine::Magic;
 use Params::Validate qw/HASHREF SCALAR/;
 use Moonshine::Util;
 
-extends (
+extends(
     'Moonshine::Bootstrap::Component',
-    'Moonshine::Bootstrap::Component::DropdownButton',   
-    'Moonshine::Bootstrap::Component::DropdownUl',   
+    'Moonshine::Bootstrap::Component::DropdownButton',
+    'Moonshine::Bootstrap::Component::DropdownUl',
 );
 
-has (
-    dropdown_spec => sub { 
-      	{
-			tag         => { default => 'div' },
-			dropup		=> 0,
-			button		=> { type => HASHREF },
-			ul			=> { type => HASHREF },
-			mid			=> { type => SCALAR },
+has(
+    dropdown_spec => sub {
+        {
+            tag    => { default => 'div' },
+            dropup => 0,
+            button => { type    => HASHREF },
+            ul     => { type    => HASHREF },
+            mid    => { type    => SCALAR },
         };
     }
 );
@@ -32,27 +32,26 @@ sub dropdown {
         }
     );
 
-	my $drop_class = $build_args->{dropup} ? 'dropup' : 'dropdown';
-	$base_args->{class} = append_str( $drop_class, $base_args->{class} );
+    my $drop_class = $build_args->{dropup} ? 'dropup' : 'dropdown';
+    $base_args->{class} = append_str( $drop_class, $base_args->{class} );
 
-	my $base_element = Moonshine::Element->new($base_args);
+    my $base_element = Moonshine::Element->new($base_args);
 
-	$base_element->add_child(
-		$self->dropdown_button(
-			{ %{ $build_args->{button} }, id => $build_args->{mid} }
-		)
-	);
+    $base_element->add_child(
+        $self->dropdown_button(
+            { %{ $build_args->{button} }, id => $build_args->{mid} }
+        )
+    );
 
-	$base_element->add_child(
-		$self->dropdown_ul(
-			{
-				%{ $build_args->{ul} },
-				aria_labelledby => $build_args->{mid}
-			}
-		)
-	);
+    $base_element->add_child(
+        $self->dropdown_ul(
+            {
+                %{ $build_args->{ul} }, aria_labelledby => $build_args->{mid}
+            }
+        )
+    );
 
-	return $base_element;
+    return $base_element;
 }
 
 1;

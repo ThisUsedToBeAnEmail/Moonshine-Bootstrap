@@ -9,11 +9,11 @@ use Moonshine::Util;
 
 extends 'Moonshine::Bootstrap::Component';
 
-has (
-    ul_spec => sub { 
-      	{
-            tag => { default => 'ul' }, 
-            inline => 0,
+has(
+    ul_spec => sub {
+        {
+            tag     => { default => 'ul' },
+            inline  => 0,
             unstyle => 0,
         };
     }
@@ -28,12 +28,13 @@ sub ul {
         }
     );
 
-    if (defined $build_args->{unstyle}) {
-        $base_args->{class} = append_str('list-unstyled', $base_args->{class})
+    if ( defined $build_args->{unstyle} ) {
+        $base_args->{class} =
+          append_str( 'list-unstyled', $base_args->{class} );
     }
 
-    if (defined $build_args->{inline}) {
-        $base_args->{class} = append_str('list-inline', $base_args->{class})
+    if ( defined $build_args->{inline} ) {
+        $base_args->{class} = append_str( 'list-inline', $base_args->{class} );
     }
 
     return Moonshine::Element->new($base_args);

@@ -8,10 +8,10 @@ use Moonshine::Bootstrap::Component;
 
 extends 'Moonshine::Bootstrap::Component';
 
-has (
-    container_spec => sub { 
-      	{
-            tag => { default => 'div' },
+has(
+    container_spec => sub {
+        {
+            tag       => { default => 'div' },
             container => { default => 1 },
         };
     }

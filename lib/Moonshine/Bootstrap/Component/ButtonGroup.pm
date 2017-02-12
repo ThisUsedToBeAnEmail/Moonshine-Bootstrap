@@ -4,23 +4,23 @@ use Moonshine::Magic;
 use Moonshine::Util;
 use Params::Validate qw/ARRAYREF/;
 
-extends (
-	'Moonshine::Bootstrap::Component',
-	'Moonshine::Bootstrap::Component::Button',
-	'Moonshine::Bootstrap::Component::Dropdown',
+extends(
+    'Moonshine::Bootstrap::Component',
+    'Moonshine::Bootstrap::Component::Button',
+    'Moonshine::Bootstrap::Component::Dropdown',
 );
 
-has (
-    button_group_spec => sub { 
-      	{
-			tag         => { default => 'div' },
-            role        => { default => 'group' },
-            class_base  => { default => 'btn-group' },
-			sizing_base => { default => 'btn-group-' },	
-            vertical    => 0,
+has(
+    button_group_spec => sub {
+        {
+            tag            => { default => 'div' },
+            role           => { default => 'group' },
+            class_base     => { default => 'btn-group' },
+            sizing_base    => { default => 'btn-group-' },
+            vertical       => 0,
             justified_base => { default => 'btn-group-justified' },
-            nested      => {
-                type => ARRAYREF,
+            nested         => {
+                type     => ARRAYREF,
                 optional => 1,
             },
             group => {
@@ -41,7 +41,8 @@ sub button_group {
     );
 
     if ( $vertical = $build_args->{vertical} ) {
-        $base_args->{class} = prepend_str( 'btn-group-vertical', $base_args->{class} );
+        $base_args->{class} =
+          prepend_str( 'btn-group-vertical', $base_args->{class} );
     }
 
     my $button_group = Moonshine::Element->new($base_args);
@@ -58,8 +59,8 @@ sub button_group {
         else {
             $button_group->add_child( $self->button($_) );
         }
-	}
-	
+    }
+
     for ( @{ $build_args->{nested} } ) {
         my $index = delete $_->{index};
         my $nested_button_group =
@@ -76,7 +77,7 @@ sub button_group {
         }
     }
 
-	return $button_group;
+    return $button_group;
 }
 
 1;

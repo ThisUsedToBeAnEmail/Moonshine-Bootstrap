@@ -9,13 +9,13 @@ use Moonshine::Util;
 
 extends 'Moonshine::Bootstrap::Component';
 
-has (
-    abbr_spec => sub { 
-      	{
-			tag         => { default => 'abbr' },
-            title       => 1,
-            data        => 1,
-            initialism  => 0,
+has(
+    abbr_spec => sub {
+        {
+            tag        => { default => 'abbr' },
+            title      => 1,
+            data       => 1,
+            initialism => 0,
         };
     }
 );
@@ -31,7 +31,7 @@ sub abbr {
     );
 
     if ( defined $build_args->{initialism} ) {
-        $base_args->{class} = append_str('initialism', $base_args->{class});
+        $base_args->{class} = append_str( 'initialism', $base_args->{class} );
     }
 
     return Moonshine::Element->new($base_args);

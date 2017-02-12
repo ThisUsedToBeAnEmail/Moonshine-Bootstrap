@@ -8,14 +8,14 @@ use Moonshine::Bootstrap::Component;
 
 extends 'Moonshine::Bootstrap::Component';
 
-has (
-    button_spec => sub { 
-      	{
-			tag         => { default => 'button' },
+has(
+    button_spec => sub {
+        {
+            tag         => { default => 'button' },
             switch      => { default => 'default' },
             switch_base => { default => 'btn btn-' },
             type        => { default => 'button' },
-			sizing_base => { default => 'btn-' },	
+            sizing_base => { default => 'btn-' },
         };
     }
 );

@@ -4,12 +4,12 @@ use Moonshine::Magic;
 
 extends 'Moonshine::Bootstrap::Component';
 
-has (
-    dropdown_header_li_spec => sub { 
-      	{
-            tag => { default => 'li' },
-			class_base => { default => 'dropdown-header' },
-		};
+has(
+    dropdown_header_li_spec => sub {
+        {
+            tag        => { default => 'li' },
+            class_base => { default => 'dropdown-header' },
+        };
     }
 );
 

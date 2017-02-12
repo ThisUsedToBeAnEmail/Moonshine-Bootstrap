@@ -10,13 +10,13 @@ extends 'Moonshine::Bootstrap::Component';
 
 lazy_components(qw/span/);
 
-has (
-    glyphicon_spec => sub { 
-      	{
+has(
+    glyphicon_spec => sub {
+        {
             switch      => 1,
-			switch_base => { default => 'glyphicon glyphicon-' },
-			aria_hidden => { default => 'true' },
-		};
+            switch_base => { default => 'glyphicon glyphicon-' },
+            aria_hidden => { default => 'true' },
+        };
     }
 );
 

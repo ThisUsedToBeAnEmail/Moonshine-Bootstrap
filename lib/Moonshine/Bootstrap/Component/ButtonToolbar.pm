@@ -3,18 +3,18 @@ package Moonshine::Bootstrap::Component::ButtonToolbar;
 use Moonshine::Magic;
 use Params::Validate qw/ARRAYREF/;
 
-extends (
-	'Moonshine::Bootstrap::Component',
-	'Moonshine::Bootstrap::Component::ButtonGroup',
+extends(
+    'Moonshine::Bootstrap::Component',
+    'Moonshine::Bootstrap::Component::ButtonGroup',
 );
 
-has (
-    button_toolbar_spec => sub { 
-      	{
-			tag         => { default => 'div' },
-            role        => { default => 'toolbar' },
-            class_base  => { default => 'btn-toolbar' },
-            toolbar      => {
+has(
+    button_toolbar_spec => sub {
+        {
+            tag        => { default => 'div' },
+            role       => { default => 'toolbar' },
+            class_base => { default => 'btn-toolbar' },
+            toolbar    => {
                 type => ARRAYREF,
             },
         };
@@ -37,7 +37,7 @@ sub button_toolbar {
         $button_toolbar->add_child( $self->button_group($_) );
     }
 
-	return $button_toolbar;
+    return $button_toolbar;
 }
 
 1;

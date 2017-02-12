@@ -2,24 +2,24 @@ package Moonshine::Bootstrap::Component::DropdownButton;
 
 use Moonshine::Magic;
 
-extends (
+extends(
     'Moonshine::Bootstrap::Component',
     'Moonshine::Bootstrap::Component::Caret',
     'Moonshine::Bootstrap::Component::Button'
 );
 
-has (
-    dropdown_button_spec => sub { 
-      	{
-            switch      => { default => 'default', base => 1 },
-            class_base  => { default => 'dropdown-toggle' },
-            id          => 1,
-            split       => 0,
-            data_toggle => { default => 'dropdown' },
+has(
+    dropdown_button_spec => sub {
+        {
+            switch     => { default => 'default', base => 1 },
+            class_base => { default => 'dropdown-toggle' },
+            id         => 1,
+            split      => 0,
+            data_toggle   => { default => 'dropdown' },
             aria_haspopup => { default => 'true' },
             aria_expanded => { default => 'true' },
-            data        => 1,
-        }
+            data          => 1,
+        };
     }
 );
 
@@ -33,7 +33,7 @@ sub dropdown_button {
         }
     );
 
-  	$build_args->{data} = delete $base_args->{data}
+    $build_args->{data} = delete $base_args->{data}
       if $build_args->{split};
 
     my $button = $self->button($base_args);
@@ -45,7 +45,7 @@ sub dropdown_button {
     ) if $build_args->{split};
 
     $button->add_child( $self->caret );
-	return $button;
+    return $button;
 }
 
 1;

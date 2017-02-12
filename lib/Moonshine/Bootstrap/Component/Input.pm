@@ -8,12 +8,12 @@ use Moonshine::Bootstrap::Component;
 
 extends 'Moonshine::Bootstrap::Component';
 
-has (
-    input_spec => sub { 
-      	{
-			tag         => { default => 'input' },
-            class_base 	=> { default => 'form-control' },
-            type        => { default => 'text' },
+has(
+    input_spec => sub {
+        {
+            tag        => { default => 'input' },
+            class_base => { default => 'form-control' },
+            type       => { default => 'text' },
         };
     }
 );

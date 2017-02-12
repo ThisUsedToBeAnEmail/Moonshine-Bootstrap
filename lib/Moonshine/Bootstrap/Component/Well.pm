@@ -8,11 +8,11 @@ use Moonshine::Bootstrap::Component;
 
 extends 'Moonshine::Bootstrap::Component';
 
-has (
-    well_spec => sub { 
-      	{
-            tag => { default => 'div' },
-            class_base => { default => 'well' },
+has(
+    well_spec => sub {
+        {
+            tag         => { default => 'div' },
+            class_base  => { default => 'well' },
             switch_base => { default => 'well-' },
         };
     }

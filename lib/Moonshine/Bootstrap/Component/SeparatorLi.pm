@@ -4,13 +4,13 @@ use Moonshine::Magic;
 
 extends 'Moonshine::Bootstrap::Component';
 
-has (
-    separator_li_spec => sub { 
-      	{
-            tag => { default => 'li' },
-            role => { default => 'separator' },
-			class_base => { default => 'divider' },
-		};
+has(
+    separator_li_spec => sub {
+        {
+            tag        => { default => 'li' },
+            role       => { default => 'separator' },
+            class_base => { default => 'divider' },
+        };
     }
 );
 

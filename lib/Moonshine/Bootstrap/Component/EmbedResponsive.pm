@@ -12,10 +12,10 @@ extends 'Moonshine::Bootstrap::Component';
 has(
     embed_responsive_spec => sub {
         {
-            tag        => { default => 'div' },
-            class_base => { default => 'embed-responsive' },
+            tag        => { default  => 'div' },
+            class_base => { default  => 'embed-responsive' },
             ratio      => { optional => 1 },
-            ratio_base => { default => 'embed-responsive-' },
+            ratio_base => { default  => 'embed-responsive-' },
         };
     }
 );
@@ -29,9 +29,11 @@ sub embed_responsive {
             spec => $self->embed_responsive_spec,
         }
     );
-    
-    if (my $ratio = join_class($build_args->{ratio_base}, $build_args->{ratio})) {
-        $base_args->{class} = prepend_str($ratio, $base_args->{class});
+
+    if ( my $ratio =
+        join_class( $build_args->{ratio_base}, $build_args->{ratio} ) )
+    {
+        $base_args->{class} = prepend_str( $ratio, $base_args->{class} );
     }
 
     return Moonshine::Element->new($base_args);

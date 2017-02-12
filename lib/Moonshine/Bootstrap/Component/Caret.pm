@@ -4,12 +4,12 @@ use Moonshine::Magic;
 
 extends 'Moonshine::Bootstrap::Component';
 
-has (
-    caret_spec => sub { 
-      	{
-            tag => { default => 'span' },
-			class_base => { default => 'caret' },
-		};
+has(
+    caret_spec => sub {
+        {
+            tag        => { default => 'span' },
+            class_base => { default => 'caret' },
+        };
     }
 );
 
