@@ -483,6 +483,21 @@ moon_test(
                 }
             ],
         },
+        {
+            test => 'obj',
+            func => 'submit_button',
+            expected => 'Moonshine::Element',
+            args   => {
+                switch => 'success',
+            },
+            subtest => [
+                {
+                    test => 'render',
+                    expected => '<button class="btn btn-success" type="submit">Submit</button>',
+                }
+            ],
+        },
+
     ],
 );
 

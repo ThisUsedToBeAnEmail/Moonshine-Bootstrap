@@ -122,17 +122,7 @@ subtest "build" => sub {
 '<nav class="navbar navbar-default"><div class="container-fluid"><div class="navbar-header"><a class="navbar-brand" href="some.url"><img alt="Brand" src="some.src"></img></a></div></div></nav>'
         }
     );
-    component_test(
-        {
-            class  => $class,
-            action => 'submit_button',
-            args   => {
-                switch => 'success',
-            },
-            expected =>
-              '<button class="btn btn-success" type="submit">Submit</button>',
-        }
-    );
+
 
     component_test(
         {
