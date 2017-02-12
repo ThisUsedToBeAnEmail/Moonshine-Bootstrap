@@ -235,7 +235,17 @@ moon_test(
                 }
             ],
         },
-
+        {
+            test => 'obj',
+            func => 'input',
+            expected => 'Moonshine::Element',
+            subtest => [
+                {
+                    test => 'render',
+                    expected => '<input class="form-control" type="text"></input>',
+                }
+            ],
+        },
 
     ],
 );
