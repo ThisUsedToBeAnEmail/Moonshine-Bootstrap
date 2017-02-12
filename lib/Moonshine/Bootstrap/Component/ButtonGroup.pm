@@ -1,6 +1,7 @@
 package Moonshine::Bootstrap::Component::ButtonGroup;
 
 use Moonshine::Magic;
+use Moonshine::Util;
 use Params::Validate qw/ARRAYREF/;
 
 extends (
@@ -40,7 +41,7 @@ sub button_group {
     );
 
     if ( $vertical = $build_args->{vertical} ) {
-        $base_args->{class} = append_str( 'btn-group-vertical', $base_args->{class} );
+        $base_args->{class} = prepend_str( 'btn-group-vertical', $base_args->{class} );
     }
 
     my $button_group = Moonshine::Element->new($base_args);

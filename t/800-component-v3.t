@@ -183,7 +183,30 @@ moon_test(
                     expected => '<div class="dropup"><button class="dropdown-toggle btn btn-default" id="dropdownMenu1" type="button" aria-expanded="true" aria-haspopup="true" data-toggle="dropdown">Dropdown<span class="caret"></span></button><ul class="dropdown-menu" aria-labelledby="dropdownMenu1"><li class="divider" role="separator"></li><li><a href="http://some.url">URL</a></li><li class="divider" role="separator"></li><li class="dropdown-header">Second</li><li class="divider" role="separator"></li></ul></div>'
                 }
             ],
-        }
+        },
+        {
+            test => 'obj',
+            func => 'button_group',
+            args => {
+                sizing => 'lg',
+                group  => [
+                    {
+                        data => 'one',
+                    },
+                    {
+                        data => 'two',
+                    },
+                ],
+            },
+            expected => 'Moonshine::Element',
+            subtest => [
+                {
+                    test => 'render',
+                    expected => '<div class="btn-group btn-group-lg" role="group"><button class="btn btn-default" type="button">one</button><button class="btn btn-default" type="button">two</button></div>'
+                }
+            ],
+        },
+
     ],
 );
 

@@ -63,17 +63,17 @@ sub modify {
     my $self = shift;
     my ( $base, $build, $modify ) = @_;
 
+    for (qw/class_base/) {
+        if ( defined $modify->{$_} ) {
+            $base->{class} = prepend_str( $modify->{ $_ }, $base->{class} );
+        }
+    } 
+
     for (qw/active justified disable row lead/) {
         if ( defined $modify->{$_} ) {
             $base->{class} = prepend_str( $modify->{ $_ . '_base' }, $base->{class} );
         }
     }
-
-     for (qw/class_base/) {
-        if ( defined $modify->{$_} ) {
-            $base->{class} = prepend_str( $modify->{ $_ }, $base->{class} );
-        }
-     } 
 
     my @grid_keys = map  { $_ }
       grep { $_ !~ m{_base$}xms } sort keys %{ $self->grid_spec };
