@@ -4,7 +4,7 @@ use warnings;
 use Moonshine::Bootstrap::v3;
 
 moon_test(
-    name => 'Bootstrap - embed_responsive - embed_responsive_iframe',
+    name => 'Bootstrap - components - v3',
     build => {
         class => 'Moonshine::Bootstrap::v3',        
     },
@@ -368,7 +368,17 @@ moon_test(
                 }
             ],
         },
-
+        {
+            test => 'obj',
+            func => 'navbar_brand',
+            expected => 'Moonshine::Element',
+            subtest => [
+                {
+                    test => 'render',
+                    expected => '<a class="navbar-brand" href="#"></a>',
+                }
+            ],
+        },
     ],
 );
 
