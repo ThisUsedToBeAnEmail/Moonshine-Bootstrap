@@ -1,12 +1,14 @@
 package Moonshine::Bootstrap::Component::Dropdown;
 
-use strict;
-use warnings;
-
 use Moonshine::Magic;
-use Moonshine::Bootstrap::Component;
+use Params::Validate qw/HASHREF SCALAR/;
+use Moonshine::Util;
 
-extends 'Moonshine::Bootstrap::Component';
+extends (
+    'Moonshine::Bootstrap::Component',
+    'Moonshine::Bootstrap::Component::DropdownButton',   
+    'Moonshine::Bootstrap::Component::DropdownUl',   
+);
 
 has (
     dropdown_spec => sub { 
