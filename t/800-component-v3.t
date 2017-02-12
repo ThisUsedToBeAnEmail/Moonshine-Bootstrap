@@ -393,7 +393,20 @@ moon_test(
                 }
             ],
         },
-
+        {
+            test => 'obj',
+            func => 'navbar_button',
+            expected => 'Moonshine::Element',
+            args => {
+                data => 'Menu'
+            },
+            subtest => [
+                {
+                    test => 'render',
+                    expected => '<button class="navbar-btn btn btn-default" type="button">Menu</button>'
+                }
+            ],
+        },
     ],
 );
 
