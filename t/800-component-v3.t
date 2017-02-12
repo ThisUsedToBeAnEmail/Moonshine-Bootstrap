@@ -419,6 +419,25 @@ moon_test(
                 }
             ],
         },
+        {
+            test => 'obj',
+            func => 'navbar_text_link',
+            expected => 'Moonshine::Element',
+            args   => { 
+                data      => 'Navbar Text',
+                alignment => 'left',
+                link      => {
+                    href => "some.url",
+                    data => "More Text",
+                }
+            },
+            subtest => [
+                {
+                    test => 'render',
+                    expected => '<p class="navbar-text navbar-left">Navbar Text<a class="navbar-link" href="some.url">More Text</a></p>'
+                }
+            ],
+        },
     ],
 );
 
