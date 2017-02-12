@@ -9,21 +9,21 @@ no if $] >= 5.017011, warnings => 'experimental::smartmatch';
 lazy_components qw/form/;
 
 extends (
-	'Moonshine::Bootstrap::Component',
-	'Moonshine::Bootstrap::Component::SubmitButton',
-	'Moonshine::Bootstrap::Component::FormGroup',
+    'Moonshine::Bootstrap::Component',
+    'Moonshine::Bootstrap::Component::SubmitButton',
+    'Moonshine::Bootstrap::Component::FormGroup',
 );
 
 has(
     navbar_form_spec => sub {
         {
-       		alignment_base => { default => 'navbar-' },
+               alignment_base => { default => 'navbar-' },
             class_base     => { default => 'navbar-form' },
             role           => 0,
             fields         => {
-            	type  => ARRAYREF,
+                type  => ARRAYREF,
                 build => 1,
-			} 
+            } 
         };
     }
 );
@@ -38,18 +38,18 @@ sub navbar_form {
         }
     );
 
-	my $form = $self->form($base_args);
+    my $form = $self->form($base_args);
 
-	for my $field ( @{ $build_args->{fields} } ) {
-		given ( delete $field->{field_type} ) {
-			when ('submit_button') {
-				$form->add_child( $self->submit_button( $field ) );
-			}
-			when ('form_group') {
-				$form->add_child( $self->form_group($field) );
-			}
-		}
-	}
+    for my $field ( @{ $build_args->{fields} } ) {
+        given ( delete $field->{field_type} ) {
+            when ('submit_button') {
+                $form->add_child( $self->submit_button( $field ) );
+            }
+            when ('form_group') {
+                $form->add_child( $self->form_group($field) );
+            }
+        }
+    }
 
     return $form
 }
