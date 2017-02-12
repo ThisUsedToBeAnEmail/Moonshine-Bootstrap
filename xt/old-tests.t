@@ -143,22 +143,6 @@ subtest "build" => sub {
         }
     );
 
-    component_test(
-        {
-            class  => $class,
-            action => 'form_group',
-            args   => {
-                fields => [
-                    {
-                        field_type  => 'text',
-                        placeholder => 'Search'
-                    },
-                ]
-            },
-            expected =>
-'<div class="form-group"><input class="form-control" placeholder="Search" type="text"></input></div>'
-        }
-    );
 
     component_test(
         {

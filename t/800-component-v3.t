@@ -496,8 +496,26 @@ moon_test(
                     expected => '<button class="btn btn-success" type="submit">Submit</button>',
                 }
             ],
-        },
-
+        },  
+        {
+            test => 'obj',
+            func => 'form_group',
+            args   => {
+                fields => [
+                    {
+                        field_type  => 'text',
+                        placeholder => 'Search'
+                    },
+                ]
+            },
+            expected => 'Moonshine::Element',
+            subtest => [
+                {
+                    test => 'render',
+                    expected => '<div class="form-group"><input class="form-control" placeholder="Search" type="text"></input></div>'
+                }
+            ],
+        },  
     ],
 );
 
