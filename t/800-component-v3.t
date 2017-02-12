@@ -311,6 +311,21 @@ moon_test(
                 }
             ],
         },
+        {
+            test => 'obj',
+            func => 'nav_item',
+            args   => {
+                link => 'http://some.url',
+                data => 'URL',
+            },
+            expected => 'Moonshine::Element',
+            subtest => [
+                {
+                    test => 'render',
+                    expected => '<li role="presentation"><a href="http://some.url">URL</a></li>'
+                }
+            ],
+        }
     ],
 );
 
