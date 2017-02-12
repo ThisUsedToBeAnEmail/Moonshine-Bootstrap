@@ -2,7 +2,7 @@ package Moonshine::Bootstrap::Component::NavbarButton;
 
 use Moonshine::Magic;
 
-extends (
+extends(
     'Moonshine::Bootstrap::Component',
     'Moonshine::Bootstrap::Component::Button',
 );
@@ -10,12 +10,12 @@ extends (
 has(
     navbar_button_spec => sub {
         {
-            type        => { default => 'button' },
-            switch      => { default => 'default', base => 1 },
-            class_base  => { default => 'navbar-btn' },
-            data        => { default => 'Submit' },
-            alignment   => { optional => 1, base => 1},
-            alignment_base => { default => 'navbar-', base => 1, },
+            type           => { default  => 'button' },
+            switch         => { default  => 'default', base => 1 },
+            class_base     => { default  => 'navbar-btn' },
+            data           => { default  => 'Submit' },
+            alignment      => { optional => 1, base => 1 },
+            alignment_base => { default  => 'navbar-', base => 1, },
         };
     }
 );

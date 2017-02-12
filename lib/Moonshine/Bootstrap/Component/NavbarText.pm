@@ -7,10 +7,10 @@ extends 'Moonshine::Bootstrap::Component';
 has(
     navbar_text_spec => sub {
         {
-            tag        => { default => 'p' },
-            data        => 1,
+            tag            => { default => 'p' },
+            data           => 1,
             alignment_base => { default => 'navbar-' },
-            class_base => { default => 'navbar-text' },
+            class_base     => { default => 'navbar-text' },
         };
     }
 );
