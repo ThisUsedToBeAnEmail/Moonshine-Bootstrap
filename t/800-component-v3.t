@@ -206,6 +206,36 @@ moon_test(
                 }
             ],
         },
+        {
+            test => 'obj',
+            func => 'button_toolbar',
+            args   => {
+                toolbar => [
+                    {
+                        group => [
+                            {
+                                data => 'one',
+                            },
+                        ],
+                    },
+                    {
+                        group => [
+                            {
+                                data => 'two',
+                            }
+                        ],
+                    },
+                ],
+            },
+            expected => 'Moonshine::Element',
+            subtest => [
+                {
+                    test => 'render',
+                    expected =>'<div class="btn-toolbar" role="toolbar"><div class="btn-group" role="group"><button class="btn btn-default" type="button">one</button></div><div class="btn-group" role="group"><button class="btn btn-default" type="button">two</button></div></div>',
+                }
+            ],
+        },
+
 
     ],
 );
