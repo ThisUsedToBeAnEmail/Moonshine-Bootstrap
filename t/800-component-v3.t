@@ -379,6 +379,21 @@ moon_test(
                 }
             ],
         },
+        {
+            test => 'obj',
+            func => 'navbar_text',
+            expected => 'Moonshine::Element',
+            args => {
+                data => 'Ping',
+            },
+            subtest => [
+                {
+                    test => 'render',
+                    expected => '<p class="navbar-text">Ping</p>',
+                }
+            ],
+        },
+
     ],
 );
 
