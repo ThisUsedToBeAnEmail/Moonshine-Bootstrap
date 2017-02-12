@@ -246,7 +246,42 @@ moon_test(
                 }
             ],
         },
-
+        {
+            test     => 'obj',
+            func     => 'input_group_addon',
+            expected => 'Moonshine::Element',
+            args     => {
+                id       => 'basic-addon1',
+                dropdown => {
+                    mid => 'dropdownMenu1',
+                    ul  => {
+                        children => [
+                            {
+                                action => 'linked_li',
+                                link   => 'http://some.url',
+                                data   => 'URL',
+                            },
+                            {
+                                action => 'linked_li',
+                                link   => 'http://second.url',
+                                data   => 'Second',
+                            }
+                        ],
+                    },
+                    button => {
+                        id   => 'dropdownMenu1',
+                        data => 'Dropdown',
+                    },
+                }
+            },
+            subtest => [
+                {
+                    test => 'render',
+                    expected =>
+'<div class="input-group-btn" id="basic-addon1"><button class="dropdown-toggle btn btn-default" id="dropdownMenu1" type="button" aria-expanded="true" aria-haspopup="true" data-toggle="dropdown">Dropdown<span class="caret"></span></button><ul class="dropdown-menu" aria-labelledby="dropdownMenu1"><li><a href="http://some.url">URL</a></li><li><a href="http://second.url">Second</a></li></ul></div>'
+                }
+            ],
+        },
     ],
 );
 
