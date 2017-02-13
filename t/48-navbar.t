@@ -49,7 +49,7 @@ moon_test(
                         role      => 'search',
                         fields    => [
                             {
-                                field_type => 'field_group',
+                                field_type => 'form_group',
                                 fields     => [
                                     {
                                         field_type  => 'text',
@@ -88,7 +88,7 @@ moon_test(
                 {
                     test => 'render',
                     expected =>
-'<nav class="navbar navbar-default"><div class="container-fluid"><button class="btn btn-default navbar-btn" type="button">Submit</button></div></nav>',
+'<nav class="navbar navbar-default"><div class="container-fluid"><button class="navbar-btn btn btn-default" type="button">Submit</button></div></nav>',
                 }
             ],
         },
@@ -320,7 +320,7 @@ moon_test(
                         navs     => [
                             {
                                 nav_type => 'nav',
-                                items    => [
+                                nav_items    => [
                                     {
                                         data   => 'Home',
                                         active => 1,
@@ -339,7 +339,7 @@ moon_test(
                                 role      => 'search',
                                 fields    => [
                                     {
-                                        field_type => 'field_group',
+                                        field_type => 'form_group',
                                         fields     => [
                                             {
                                                 field_type  => 'text',
@@ -355,7 +355,7 @@ moon_test(
                             {
                                 nav_type  => 'nav',
                                 alignment => 'right',
-                                items     => [
+                                nav_items     => [
                                     {
                                         data   => 'Home',
                                         active => 1,
@@ -377,7 +377,7 @@ moon_test(
                 {
                     test => 'render',
                     expected =>
-'<nav class="navbar navbar-default"><div class="container-fluid"><div class="navbar-header"><button class="navbar-toggle collapsed" type="button" aria-expanded="false" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="#">Brand</a></div><div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"><ul class="nav navbar-nav"><li class="active" role="presentation"><a href="#">Home</a></li><li role="presentation"><a href="#">Profile</a></li><li role="presentation"><a href="#">Messages</a></li></ul><form class="navbar-form navbar-left" role="search"><div class="form-group"><input class="form-control" placeholder="Search" type="text"></input></div><button class="btn btn-default" type="submit">Submit</button></form><ul class="nav navbar-nav navbar-right"><li class="active" role="presentation"><a href="#">Home</a></li><li role="presentation"><a href="#">Profile</a></li><li role="presentation"><a href="#">Messages</a></li></ul></div></div></nav>',
+'<nav class="navbar navbar-default"><div class="container-fluid"><div class="navbar-header"><button class="navbar-toggle collapsed" type="button" aria-expanded="false" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="#">Brand</a></div><div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"><ul class="navbar-nav nav"><li class="active" role="presentation"><a href="#">Home</a></li><li role="presentation"><a href="#">Profile</a></li><li role="presentation"><a href="#">Messages</a></li></ul><form class="navbar-form navbar-left" role="search"><div class="form-group"><input class="form-control" placeholder="Search" type="text"></input></div><button class="btn btn-default" type="submit">Submit</button></form><ul class="navbar-nav navbar-right nav"><li class="active" role="presentation"><a href="#">Home</a></li><li role="presentation"><a href="#">Profile</a></li><li role="presentation"><a href="#">Messages</a></li></ul></div></div></nav>',
                 }
             ],
         },
@@ -431,7 +431,7 @@ moon_test(
                         role      => 'search',
                         fields    => [
                             {
-                                field_type => 'field_group',
+                                field_type => 'form_group',
                                 fields     => [
                                     {
                                         field_type  => 'text',
@@ -470,7 +470,7 @@ moon_test(
                 {
                     test => 'render',
                     expected =>
-'<nav class="navbar navbar-default"><div class="container-fluid"><button class="btn btn-default navbar-btn" type="button">Submit</button></div></nav>',
+'<nav class="navbar navbar-default"><div class="container-fluid"><button class="navbar-btn btn btn-default" type="button">Submit</button></div></nav>',
                 }
             ],
         },
@@ -702,7 +702,7 @@ moon_test(
                         navs     => [
                             {
                                 nav_type => 'nav',
-                                items    => [
+                                nav_items    => [
                                     {
                                         data   => 'Home',
                                         active => 1,
@@ -721,7 +721,7 @@ moon_test(
                                 role      => 'search',
                                 fields    => [
                                     {
-                                        field_type => 'field_group',
+                                        field_type => 'form_group',
                                         fields     => [
                                             {
                                                 field_type  => 'text',
@@ -737,7 +737,7 @@ moon_test(
                             {
                                 nav_type  => 'nav',
                                 alignment => 'right',
-                                items     => [
+                                nav_items     => [
                                     {
                                         data   => 'Home',
                                         active => 1,
@@ -759,16 +759,12 @@ moon_test(
                 {
                     test => 'render',
                     expected =>
-'<nav class="navbar navbar-default"><div class="container-fluid"><div class="navbar-header"><button class="navbar-toggle collapsed" type="button" aria-expanded="false" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="#">Brand</a></div><div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"><ul class="nav navbar-nav"><li class="active" role="presentation"><a href="#">Home</a></li><li role="presentation"><a href="#">Profile</a></li><li role="presentation"><a href="#">Messages</a></li></ul><form class="navbar-form navbar-left" role="search"><div class="form-group"><input class="form-control" placeholder="Search" type="text"></input></div><button class="btn btn-default" type="submit">Submit</button></form><ul class="nav navbar-nav navbar-right"><li class="active" role="presentation"><a href="#">Home</a></li><li role="presentation"><a href="#">Profile</a></li><li role="presentation"><a href="#">Messages</a></li></ul></div></div></nav>',
+'<nav class="navbar navbar-default"><div class="container-fluid"><div class="navbar-header"><button class="navbar-toggle collapsed" type="button" aria-expanded="false" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="#">Brand</a></div><div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"><ul class="navbar-nav nav"><li class="active" role="presentation"><a href="#">Home</a></li><li role="presentation"><a href="#">Profile</a></li><li role="presentation"><a href="#">Messages</a></li></ul><form class="navbar-form navbar-left" role="search"><div class="form-group"><input class="form-control" placeholder="Search" type="text"></input></div><button class="btn btn-default" type="submit">Submit</button></form><ul class="navbar-nav navbar-right nav"><li class="active" role="presentation"><a href="#">Home</a></li><li role="presentation"><a href="#">Profile</a></li><li role="presentation"><a href="#">Messages</a></li></ul></div></div></nav>',
                 }
             ],
         },
 
     ],
 );
-
-
-
-
 
 sunrise();

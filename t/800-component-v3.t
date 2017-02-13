@@ -536,6 +536,91 @@ moon_test(
                 }
             ],
         },
+        {
+            test => 'obj',
+            func => 'navbar_header',
+            expected => 'Moonshine::Element',
+            args   => {
+                headers => [
+                    {
+                        header_type => 'link_image',
+                        img         => {
+                            alt => 'Brand',
+                            src => 'some.src',
+                        },
+                        href => 'some.url',
+                    },
+                ],
+            },            
+            subtest => [
+                {
+                    test => 'render',
+                    expected => '<div class="navbar-header"><a class="navbar-brand" href="some.url"><img alt="Brand" src="some.src"></img></a></div>'
+                }
+            ],
+        },
+        {
+            test => 'obj',
+            func => 'navbar',
+            args => {
+                navs => [
+                    {
+                        nav_type => 'header',
+                        headers  => [
+                            {
+                                header_type => 'link_image',
+                                img         => {
+                                    alt => 'Brand',
+                                    src => 'some.src',
+                                },
+                                href => 'some.url',
+                            },
+                        ],
+                    },
+                ],
+            },
+            expected => 'Moonshine::Element',
+            subtest  => [
+                {
+                    test => 'render',
+                    expected =>
+'<nav class="navbar navbar-default"><div class="container-fluid"><div class="navbar-header"><a class="navbar-brand" href="some.url"><img alt="Brand" src="some.src"></img></a></div></div></nav>'
+                }
+            ],
+        },
+        {
+            test => 'obj',
+            func => 'navbar_collapse',
+            args   => {
+                id   => 'bs-example-navbar-collapse-1',
+                navs => [
+                    {
+                        nav_type => 'nav',
+                        nav_items    => [
+                            {
+                                data   => 'Home',
+                                active => 1,
+                            },
+                            {
+                                data => 'Profile',
+                            },
+                            {
+                                data => 'Messages',
+                            }
+                        ],
+                    },
+                ],
+            },
+            expected => 'Moonshine::Element',
+            subtest => [
+                {
+                    test => 'render',
+                    expected => '<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"><ul class="navbar-nav nav"><li class="active" role="presentation"><a href="#">Home</a></li><li role="presentation"><a href="#">Profile</a></li><li role="presentation"><a href="#">Messages</a></li></ul></div>',
+                }
+            ],
+        },
+ 
+
     ],
 );
 
