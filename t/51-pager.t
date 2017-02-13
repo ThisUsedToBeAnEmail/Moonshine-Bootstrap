@@ -121,6 +121,6 @@ moon_test(
             ],
         },
     ],
-)
+);
 
 sunrise();

@@ -660,6 +660,19 @@ moon_test(
                 }
             ],
         },
+        {
+            test => 'obj',
+            func => 'pager',
+            args   => { aligned => 1, disable => 'both', nav => 1 },
+            expected => 'Moonshine::Element',
+            subtest => [
+                {
+                    test => 'render',
+                    expected => 
+'<nav><ul class="pager"><li class="previous disabled"><a href="#"><span>Previous</span></a></li><li class="next disabled"><a href="#"><span>Next</span></a></li></ul></nav>'
+                }
+            ],
+        },
     ],
 );
 
