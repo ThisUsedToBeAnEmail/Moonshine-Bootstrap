@@ -673,6 +673,20 @@ moon_test(
                 }
             ],
         },
+        {
+            test     => 'obj',
+            func     => 'text_label',
+            expected => 'Moonshine::Element',
+            args     => {
+                data => 'New',
+            },
+            subtest => [
+                {
+                    test     => 'render',
+                    expected => '<span class="label label-default">New</span>'
+                }
+            ],
+        },
     ],
 );
 
