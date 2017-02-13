@@ -5,7 +5,7 @@ use Params::Validate qw/ARRAYREF/;
 use feature qw/switch/;
 no if $] >= 5.017011, warnings => 'experimental::smartmatch';
 
-extends (
+extends(
     'Moonshine::Bootstrap::Component',
     'Moonshine::Bootstrap::Component::LinkImage',
     'Moonshine::Bootstrap::Component::NavbarToggle',
@@ -18,8 +18,8 @@ has(
             tag        => { default => 'div' },
             class_base => { default => 'navbar-header' },
             headers    => {
-                type    => ARRAYREF,
-                build   => 1,
+                type  => ARRAYREF,
+                build => 1,
             },
             mid => 0,
         };
@@ -71,7 +71,11 @@ Moonshine::Bootstrap::Component::NavbarHeader
 
 returns a Moonshine::Element that renders too..
 
-
+   <div class="navbar-header">
+      <a class="navbar-brand" href="#">
+        <img alt="Brand" src="...">
+      </a>
+    </div> 
 
 =cut
 
