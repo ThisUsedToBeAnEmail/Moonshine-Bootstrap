@@ -687,9 +687,30 @@ moon_test(
                 }
             ],
         },
+        {
+            test => 'obj',
+            func => 'badge',
+            expected => 'Moonshine::Element',
+            args   => {
+                data    => '4',
+                wrapper => {
+                    tag   => 'button',
+                    class => 'btn btn-primary',
+                    type  => 'button',
+                    data  => 'Messages'
+                }
+            },
+            subtest => [
+                {
+                    test => 'render',
+                    expected => 
+'<button class="btn btn-primary" type="button">Messages<span class="badge">4</span></button>'   
+                }
+            ],
+        },
     ],
 );
 
-sunrise();
+sunrise(106, '(\o/)');
 
 1;

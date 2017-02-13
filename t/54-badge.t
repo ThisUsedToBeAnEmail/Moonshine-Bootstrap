@@ -89,6 +89,6 @@ moon_test(
             ],
         },
     ],
-)
+);
 
 sunrise();
