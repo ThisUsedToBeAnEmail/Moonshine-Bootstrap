@@ -13,7 +13,7 @@ moon_test(
             test => 'obj',
             func => 'breadcrumb',
             args   => {
-                items => [
+                crumbs => [
                     {
                         link => '#',
                         data => 'Home',
@@ -50,7 +50,7 @@ moon_test(
             test => 'obj',
             func => 'breadcrumb',
             args   => {
-                items => [
+                crumbs => [
                     {
                         link => '#',
                         data => 'Home',

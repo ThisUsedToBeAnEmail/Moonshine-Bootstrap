@@ -619,7 +619,34 @@ moon_test(
                 }
             ],
         },
- 
+         {
+            test => 'obj',
+            func => 'breadcrumb',
+            args   => {
+                crumbs => [
+                    {
+                        link => '#',
+                        data => 'Home',
+                    },
+                    {
+                        link => '#',
+                        data => 'Library',
+                    },
+                    {
+                        active => 1,
+                        data   => 'Data',
+                    }
+                ],
+            },
+
+            expected => 'Moonshine::Element',
+            subtest => [
+                {
+                    test => 'render',
+                    expected => '<ol class="breadcrumb"><li><a href="#">Home</a></li><li><a href="#">Library</a></li><li class="active">Data</li></ol>'
+                }
+            ],
+        },
 
     ],
 );

@@ -92,15 +92,24 @@ __END__
 
 =head1 NAME
 
-Moonshine::Bootstrap::Component::NavbarNav
+Moonshine::Bootstrap::Component::Navbar
 
 =head1 SYNOPSIS
 
-    $self->navbar_nav({ data => 'Hey' });
+    $self->navbar({ data => 'Hey' });
 
 returns a Moonshine::Element that renders too..
 
-    <p class="navbar-text">Hey</p>
+
+    <nav class="navbar navbar-default">
+          <div class="container-fluid">
+            <div class="navbar-header">
+               <a class="navbar-brand" href="#">
+                   <img alt="Brand" src="...">
+               </a>
+            </div>
+          </div>
+    </nav>
 
 =cut
 
