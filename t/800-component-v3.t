@@ -768,6 +768,18 @@ moon_test(
                 }
             ],
         },
+        {
+            test => 'obj',
+            func => 'caption',
+            expected => 'Moonshine::Element',
+            subtest => [
+                {
+                    test => 'render',
+                    expected => '<div class="caption"></div>',
+                }
+            ],
+        },
+
     ],
 );
 
