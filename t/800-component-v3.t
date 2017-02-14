@@ -708,9 +708,59 @@ moon_test(
                 }
             ],
         },
+        {
+            test => 'obj',
+            func => 'jumbotron',
+            args   => {
+                children => [
+                    {
+                        action => 'h1',
+                        data   => 'Hello, world!',
+                    },
+                    {
+                        action => 'p',
+                        data   => 'yoooo',
+                    },
+                    {
+                        action => 'button',
+                        tag    => 'a',
+                        sizing => 'lg',
+                        href   => '#',
+                        role   => 'button',
+                        data   => 'Learn more',
+                        switch => 'primary'
+                    },
+                ],
+            },
+            expected => 'Moonshine::Element',
+            subtest => [
+                {
+                    test => 'render',
+                    expected => '<div class="jumbotron"><h1>Hello, world!</h1><p>yoooo</p><a class="btn btn-primary btn-lg" href="#" type="button" role="button">Learn more</a></div>',
+                }
+            ],
+        },
+        {
+            test => 'obj',
+            func => 'page_header',
+            args   => {
+                header => {
+                    data => 'Example page header ',
+                },
+                small =>  { data => 'Subtext for header' },
+            },
+            expected => 'Moonshine::Element',
+            subtest => [
+                {
+                    test => 'render',
+                    expected => '<div class="page-header"><h1>Example page header <small>Subtext for header</small></h1></div>',
+                }
+            ],
+        },
+
     ],
 );
 
-sunrise(106, '(\o/)');
+sunrise(112, '(\o/)');
 
 1;

@@ -32,7 +32,7 @@ moon_test(
                 header => {
                     data => 'Example page header ',
                 },
-                small => 'Subtext for header',
+                small => { data => 'Subtext for header' },
             },
             expected => 'Moonshine::Element',
             subtest => [
@@ -74,7 +74,7 @@ moon_test(
                 header => {
                     data => 'Example page header ',
                 },
-                small => 'Subtext for header',
+                small =>  { data => 'Subtext for header' },
             },
             expected => 'Moonshine::Element',
             subtest => [
