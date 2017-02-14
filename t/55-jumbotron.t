@@ -36,7 +36,7 @@ moon_test(
             test => 'obj',
             func => 'jumbotron',
             args   => {
-                items => [
+                children => [
                     {
                         action => 'h1',
                         data   => 'Hello, world!',
@@ -100,7 +100,7 @@ moon_test(
             test => 'obj',
             func => 'jumbotron',
             args   => {
-                items => [
+                children => [
                     {
                         action => 'h1',
                         data   => 'Hello, world!',
