@@ -4,14 +4,14 @@ use Moonshine::Bootstrap::Component::MediaLinkImage;
 use Moonshine::Bootstrap::v3::MediaLinkImage;
 
 moon_test(
-    name => 'media_link_img',
+    name => 'media_link_image',
     build => {
         class => 'Moonshine::Bootstrap::Component::MediaLinkImage',        
     },
     instructions => [
         {
             test => 'obj',
-            func => 'media_link_img',
+            func => 'media_link_image',
             args   => {
                 href => '#',
                 img  => { src => 'url', alt => 'alt text' },
@@ -28,14 +28,14 @@ moon_test(
 );
 
 moon_test(
-    name => 'media_link_img',
+    name => 'media_link_image',
     build => {
         class => 'Moonshine::Bootstrap::v3::MediaLinkImage',        
     },
     instructions => [
         {
             test => 'obj',
-            func => 'media_link_img',
+            func => 'media_link_image',
             args   => {
                 href => '#',
                 img  => { src => 'url', alt => 'alt text' },

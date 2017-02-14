@@ -822,10 +822,25 @@ moon_test(
                 }
             ],
         },
+        {
+            test => 'obj',
+            func => 'media_link_image',
+            args   => {
+                href => '#',
+                img  => { src => 'url', alt => 'alt text' },
+            },
+            expected => 'Moonshine::Element',
+            subtest => [
+                {
+                    test => 'render',
+                    expected => '<a href="#"><img alt="alt text" class="media-object" src="url"></img></a>'
+                }
+            ],
+        },
 
     ],
 );
 
-sunrise(127, '(\o/)');
+sunrise(130, '(\o/)');
 
 1;
