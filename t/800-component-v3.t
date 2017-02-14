@@ -794,11 +794,23 @@ moon_test(
                 }
             ],
         },
+        {
+            test => 'obj',
+            func => 'progress_bar',
+            expected => 'Moonshine::Element',
+            args   => { aria_valuenow => '60', show => 1, switch => 'info' },
+            subtest => [
+                {
+                    test => 'render',
+                    expected => '<div class="progress-bar progress-bar-info" style="min-width:3em; width:60%;" aria-valuemax="100" aria-valuemin="0" aria-valuenow="60" role="progressbar">60%</div>',
+                }
+            ],
+        },
 
 
     ],
 );
 
-sunrise(121, '(\o/)');
+sunrise(124, '(\o/)');
 
 1;
