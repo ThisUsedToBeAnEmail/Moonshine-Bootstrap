@@ -4,7 +4,6 @@ use strict;
 use warnings;
 
 use Moonshine::Magic;
-use Moonshine::Bootstrap::Component;
 use Moonshine::Util;
 
 extends 'Moonshine::Bootstrap::Component';
