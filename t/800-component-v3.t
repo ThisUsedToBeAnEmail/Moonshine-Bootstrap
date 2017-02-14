@@ -779,10 +779,26 @@ moon_test(
                 }
             ],
         },
+        {
+            test => 'obj',
+            func => 'alert',
+            expected => 'Moonshine::Element',
+            args   => {
+                data   => 'Primary',
+                switch => 'primary',
+            },
+            subtest => [
+                {
+                    test => 'render',
+                    expected => '<div class="alert alert-primary">Primary</div>'
+                }
+            ],
+        },
+
 
     ],
 );
 
-sunrise(112, '(\o/)');
+sunrise(121, '(\o/)');
 
 1;
