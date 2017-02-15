@@ -14,7 +14,7 @@ moon_test(
             func => 'list_group',
             expected => 'Moonshine::Element',
             args   => {
-                items => [
+                list_items => [
                     {
                         data   => 'Hello World',
                         active => 1,
@@ -42,7 +42,7 @@ moon_test(
             func => 'list_group',
             expected => 'Moonshine::Element',
             args   => {
-                items => [
+                list_items => [
                     {
                         data   => 'Hello World',
                         active => 1,

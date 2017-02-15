@@ -48,14 +48,11 @@ Moonshine::Bootstrap::Component::ListGroupItem
 
 =head1 SYNOPSIS
 
-    $self->list_group_item({ ... });
+    $self->list_group_item({ class => 'search' });
 
 returns a Moonshine::Element that renders too..
 
-    <ul class="list-group">
-        <li class="list-group-item">Some text</li>
-        ....
-    </ul>
+    <li class="list-group-item">Some text</li>
 
 =cut
 
