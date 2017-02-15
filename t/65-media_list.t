@@ -13,16 +13,16 @@ moon_test(
             test => 'obj',
             func => 'media_list',
             args => {
-                items => [
+                media_items => [
                     {
-                        items => [
+                        children => [
                             {
                                 action => 'media_object',
                                 x      => 'left',
                                 y      => 'middle',
-                                items  => [
+                                children  => [
                                     {
-                                        action => 'media_link_img',
+                                        action => 'media_link_image',
                                         href   => "#",
                                         img =>
                                           { src => 'url', alt => 'alt text' },
@@ -32,7 +32,7 @@ moon_test(
                             {
                                 action => 'media_object',
                                 body   => 1,
-                                items  => [
+                                children  => [
                                     {
                                         action => 'h4',
                                         class  => 'media-heading',
@@ -66,16 +66,16 @@ moon_test(
             test => 'obj',
             func => 'media_list',
             args => {
-                items => [
+                media_items => [
                     {
-                        items => [
+                        children => [
                             {
                                 action => 'media_object',
                                 x      => 'left',
                                 y      => 'middle',
-                                items  => [
+                                children  => [
                                     {
-                                        action => 'media_link_img',
+                                        action => 'media_link_image',
                                         href   => "#",
                                         img =>
                                           { src => 'url', alt => 'alt text' },
@@ -85,7 +85,7 @@ moon_test(
                             {
                                 action => 'media_object',
                                 body   => 1,
-                                items  => [
+                                children  => [
                                     {
                                         action => 'h4',
                                         class  => 'media-heading',

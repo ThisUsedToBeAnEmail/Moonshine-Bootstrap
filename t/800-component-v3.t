@@ -897,12 +897,72 @@ moon_test(
                 }
             ],
         },
-
+        {
+            test => 'obj',
+            func => 'media_list',
+            args => {
+                media_items => [
+                    {
+                        children => [
+                            {
+                                action => 'media_object',
+                                x      => 'left',
+                                y      => 'middle',
+                                children  => [
+                                    {
+                                        action => 'media_link_image',
+                                        href   => "#",
+                                        img =>
+                                          { src => 'url', alt => 'alt text' },
+                                    }
+                                ],
+                            },
+                            {
+                                action => 'media_object',
+                                body   => 1,
+                                children  => [
+                                    {
+                                        action => 'h4',
+                                        class  => 'media-heading',
+                                        data   => "Middle aligned media",
+                                    }
+                                ],
+                            }
+                        ],
+                    },
+                ],
+            },
+            expected => 'Moonshine::Element',
+            subtest  => [
+                {
+                    test => 'render',
+                    expected =>
+'<ul class="media-list"><li class="media"><div class="media-left media-middle"><a href="#"><img alt="alt text" class="media-object" src="url"></img></a></div><div class="media-body"><h4 class="media-heading">Middle aligned media</h4></div></li></ul>'
+                }
+            ],
+        },
+        {
+            test => 'obj',
+            func => 'list_group_item',
+            expected => 'Moonshine::Element',
+            args   => {
+                data   => 'Hello World',
+                active => 1,
+                badge  => { data => '41' },
+                switch => 'success',
+            },
+            subtest => [
+                {
+                    test => 'render',
+                    expected => '<li class="list-group-item list-group-item-success active">Hello World<span class="badge">41</span></li>'
+                }
+            ],
+        },
 
     ],
 
 );
 
-sunrise(136, '(\o/)');
+sunrise(142, '(\o/)');
 
 1;
