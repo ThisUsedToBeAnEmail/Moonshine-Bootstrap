@@ -6,6 +6,8 @@ use Params::Validate qw/HASHREF/;
 extends (
     'Moonshine::Bootstrap::Component',
     'Moonshine::Bootstrap::Component::Badge',
+    'Moonshine::Bootstrap::Component::ListedGroupItemText',
+    'Moonshine::Bootstrap::Component::ListedGroupItemHeading',
 );
 
 has(

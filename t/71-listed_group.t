@@ -14,7 +14,7 @@ moon_test(
             func => 'listed_group',
             expected => 'Moonshine::Element',
             args   => {
-                items => [
+                list_items => [
                     {
                         data   => 'Hello World',
                         href   => '#',
@@ -34,7 +34,7 @@ moon_test(
             func => 'listed_group',
             expected => 'Moonshine::Element',
             args   => {
-                items => [
+                list_items => [
                     {
                         data   => 'Hello World',
                         button => 1,
@@ -53,11 +53,11 @@ moon_test(
             func => 'listed_group',
             expected => 'Moonshine::Element',
             args   => {
-                items => [
+                list_items => [
                     {
                         active => 1,
                         href   => '#',
-                        items  => [
+                        children  => [
                             {
                                 action => 'listed_group_item_heading',
                                 data   => 'List group item heading',
@@ -91,7 +91,7 @@ moon_test(
             func => 'listed_group',
             expected => 'Moonshine::Element',
             args   => {
-                items => [
+                list_items => [
                     {
                         data   => 'Hello World',
                         href   => '#',
@@ -111,7 +111,7 @@ moon_test(
             func => 'listed_group',
             expected => 'Moonshine::Element',
             args   => {
-                items => [
+                list_items => [
                     {
                         data   => 'Hello World',
                         button => 1,
@@ -130,11 +130,11 @@ moon_test(
             func => 'listed_group',
             expected => 'Moonshine::Element',
             args   => {
-                items => [
+                list_items => [
                     {
                         active => 1,
                         href   => '#',
-                        items  => [
+                        children  => [
                             {
                                 action => 'listed_group_item_heading',
                                 data   => 'List group item heading',
