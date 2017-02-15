@@ -1,12 +1,12 @@
 use Moonshine::Test qw/:all/;
 
-use Moonshine::Bootstrap::Component::LinkedGroupItemHeading;
-use Moonshine::Bootstrap::v3::LinkedGroupItemHeading;
+use Moonshine::Bootstrap::Component::ListedGroupItemHeading;
+use Moonshine::Bootstrap::v3::ListedGroupItemHeading;
 
 moon_test(
     name => 'listed_group_item_heading',
     build => {
-        class => 'Moonshine::Bootstrap::Component::LinkedGroupItemHeading',        
+        class => 'Moonshine::Bootstrap::Component::ListedGroupItemHeading',        
     },
     instructions => [
         {
@@ -14,12 +14,12 @@ moon_test(
             func => 'listed_group_item_heading',
             expected => 'Moonshine::Element',
             args   => {
-                data => 'Hello World',
+                data => 'hello world',
             },
             subtest => [
                 {
                     test => 'render',
-                    expected => '<h4 class="list-group-item-heading">Hello World</h4>'
+                    expected => '<h4 class="list-group-item-heading">hello world</h4>'
                 }
             ],
         },
@@ -29,7 +29,7 @@ moon_test(
 moon_test(
     name => 'listed_group_item_heading',
     build => {
-        class => 'Moonshine::Bootstrap::v3::LinkedGroupItemHeading',        
+        class => 'Moonshine::Bootstrap::v3::ListedGroupItemHeading',        
     },
     instructions => [
         {
