@@ -992,10 +992,25 @@ moon_test(
                 }
             ],
         },
+        {
+            test => 'obj',
+            func => 'listed_group_item_text',
+            expected => 'Moonshine::Element',
+            args   => {
+                data => 'Hello World',
+            },
+            subtest => [
+                {
+                    test => 'render',
+                    expected => '<p class="list-group-item-text">Hello World</p>'
+                }
+            ],
+        },
+
     ],
 
 );
 
-sunrise(148, '(\o/)');
+sunrise(151, '(\o/)');
 
 1;
