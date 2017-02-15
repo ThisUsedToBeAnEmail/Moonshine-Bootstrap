@@ -1049,9 +1049,23 @@ moon_test(
                 }
             ],
         },
+        {
+            test => 'obj',
+            func => 'panel_body',
+            expected => 'Moonshine::Element',
+            args   => {
+                data => 'Basic panel example',
+            },
+            subtest => [
+                {
+                    test => 'render',
+                    expected => '<div class="panel-body">Basic panel example</div>'
+                }
+            ],
+        },
     ],
 );
 
-sunrise(157, '(\o/)');
+sunrise(160, '(\o/)');
 
 1;
