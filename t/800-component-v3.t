@@ -977,11 +977,25 @@ moon_test(
                 }
             ],
         },
-
+        {
+            test => 'obj',
+            func => 'listed_group_item',
+            expected => 'Moonshine::Element',
+            args   => {
+                data => 'Hello World',
+                href => '#',
+            }, 
+            subtest => [
+                {
+                    test => 'render',
+                    expected => '<a class="list-group-item" href="#">Hello World</a>'
+                }
+            ],
+        },
     ],
 
 );
 
-sunrise(145, '(\o/)');
+sunrise(148, '(\o/)');
 
 1;
