@@ -837,8 +837,31 @@ moon_test(
                 }
             ],
         },
+        {
+            test => 'obj',
+            func => 'media_object',
+            args   => {
+                y     => 'top',
+                x     => 'left',
+                children => [
+                    {
+                        action => 'media_link_image',
+                        href   => "#",
+                        img    => { src => 'url', alt => 'alt text' },
+                    }
+                ],
+            },
+            expected => 'Moonshine::Element',
+            subtest => [
+                {
+                    test => 'render',
+                    expected => '<div class="media-left media-top"><a href="#"><img alt="alt text" class="media-object" src="url"></img></a></div>',
+                }
+            ],
+        },
 
     ],
+
 );
 
 sunrise(130, '(\o/)');

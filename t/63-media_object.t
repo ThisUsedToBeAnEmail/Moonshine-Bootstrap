@@ -15,9 +15,9 @@ moon_test(
             args   => {
                 y     => 'top',
                 x     => 'left',
-                items => [
+                children => [
                     {
-                        action => 'media_link_img',
+                        action => 'media_link_image',
                         href   => "#",
                         img    => { src => 'url', alt => 'alt text' },
                     }
@@ -36,7 +36,7 @@ moon_test(
             func => 'media_object',
             args   => {
                 body  => 1,
-                items => [
+                children => [
                     {
                         action => 'h4',
                         class  => 'media-heading',
@@ -68,9 +68,9 @@ moon_test(
             args   => {
                 y     => 'top',
                 x     => 'left',
-                items => [
+                children => [
                     {
-                        action => 'media_link_img',
+                        action => 'media_link_image',
                         href   => "#",
                         img    => { src => 'url', alt => 'alt text' },
                     }
@@ -89,7 +89,7 @@ moon_test(
             func => 'media_object',
             args   => {
                 body  => 1,
-                items => [
+                children => [
                     {
                         action => 'h4',
                         class  => 'media-heading',
