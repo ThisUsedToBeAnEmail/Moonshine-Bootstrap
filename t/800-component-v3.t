@@ -1110,6 +1110,6 @@ moon_test(
     ],
 );
 
-sunrise(163, '(\o/)');
+sunrise(166, '(\o/)');
 
 1;
