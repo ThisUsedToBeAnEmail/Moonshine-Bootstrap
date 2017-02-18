@@ -1083,6 +1083,30 @@ moon_test(
                 }
             ],
         },
+        {
+            test => 'obj',
+            func => 'basic_template',
+            expected => 'Moonshine::Element',
+            args => {
+                header => [
+                    {
+                        action      => 'title',
+                        data        => 'Bootstrap 101 Template',
+                    },
+                    {
+                        action      => 'link',
+                        href        => 'css/bootstrap.min.css',
+                        rel         => 'stylesheet',
+                    }
+                ],    
+            },
+            subtest => [
+                {
+                    test => 'render',
+                    expected => '<html lang="en"><head><meta charset="utf-8"></meta><meta content="IE=edge" http-equiv="X-UA-Compatible"></meta><meta content="width=device-width, inline-scale=1" name="viewport"></meta><title>Bootstrap 101 Template</title><link href="css/bootstrap.min.css" rel="stylesheet"></link></head><body></body></html>',
+                }
+            ],
+        },
     ],
 );
 
